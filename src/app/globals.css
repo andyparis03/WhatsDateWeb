@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-wa-green: #25D366;
+  --color-wa-dark: #075E54;
+  --color-wa-light: #DCF8C6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', 'Geist', 'sans-serif';
+}
+
+.text-wa-green {
+  color: var(--color-wa-green) !important;
+}
+.bg-wa-green {
+  background: var(--color-wa-green) !important;
+}
+.shadow-wa {
+  box-shadow: 0 0 8px #25D366, 0 0 16px #25D366;
+}
+.drop-shadow-wa-glow {
+  filter: drop-shadow(0 0 8px #25D366) drop-shadow(0 0 16px #25D366);
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Large tap targets for mobile */
+button, a, .rounded-full {
+  min-height: 48px;
+  min-width: 48px;
+  touch-action: manipulation;
+}
+
+/* Smooth transitions for theme and hover */
+body, .transition-all, .transition-colors {
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0a0a0a;
+    color: #fff;
+  }
+}
