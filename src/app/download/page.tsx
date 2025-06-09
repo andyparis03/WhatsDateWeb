@@ -14,7 +14,7 @@ export default function DownloadPage() {
         Try WhatsDate for free! Available for Windows (macOS coming soon). Your feedback helps us build the future of AI-powered dating.
       </motion.p>
       <div className="flex flex-col md:flex-row gap-6 mb-10">
-        <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} href="https://github.com/WhatsDate/WhatsDate/releases/download/v0.0.1-beta/WhatsDate-0.0.1.Setup.exe" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-8 py-4 rounded-full bg-wa-green text-white text-xl font-bold shadow-wa transition-all hover:scale-105 hover:shadow-wa-glow">
+        <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} href="https://github.com/WhatsDate/WhatsDate/releases/tag/v.0.0.1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-8 py-4 rounded-full bg-wa-green text-white text-xl font-bold shadow-wa transition-all hover:scale-105 hover:shadow-wa-glow">
           <FaWindows size={28} /> Download for Windows
         </motion.a>
         <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} href="#" className="flex items-center gap-3 px-8 py-4 rounded-full bg-neutral-800 text-white text-xl font-bold shadow-wa transition-all opacity-60 cursor-not-allowed">
