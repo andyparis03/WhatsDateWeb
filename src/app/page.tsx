@@ -13,7 +13,7 @@ export default function Home() {
           <span className="inline-block bg-wa-light text-wa-dark font-semibold px-3 py-1 rounded-full text-md shadow border border-wa-green mb-2">!! 1000 Autoreply Messages FREE for Early Testers !!</span>
         </div>
         {/* Desktop heading: single row */}
-        <h1 className="hidden md:flex text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-white drop-shadow-wa-glow items-center justify-center gap-4">
+        <h1 className="hidden md:flex text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-white items-center justify-center gap-4">
           Meet
           <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={64} height={64} className="inline-block h-16 w-16 object-contain mx-2" />
           <span className="text-wa-green">WhatsDate</span>
@@ -21,11 +21,11 @@ export default function Home() {
         
         {/* Mobile heading: two rows */}
         <div className="md:hidden flex flex-col items-center justify-center mb-6">
-          <div className="flex items-center justify-center gap-4 text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow-wa-glow">
+          <div className="flex items-center justify-center gap-4 text-5xl font-extrabold tracking-tight leading-tight text-white">
             Meet
             <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={64} height={64} className="inline-block h-16 w-16 object-contain mx-2" />
           </div>
-          <div className="text-5xl font-extrabold tracking-tight leading-tight text-wa-green drop-shadow-wa-glow">
+          <div className="text-5xl font-extrabold tracking-tight leading-tight text-wa-green">
             WhatsDate
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function Home() {
         </p>
         <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-4">
           <Link href="/download">
-            <button className="px-8 py-4 rounded-full bg-wa-green text-white text-xl font-bold shadow-wa transition-all hover:scale-105 hover:shadow-wa-glow">
+            <button className="px-8 py-4 rounded-full bg-wa-green text-white text-xl font-bold shadow-wa transition-all hover:scale-105">
               🎁 Claim 1000 FREE Credits
             </button>
           </Link>
@@ -97,7 +97,7 @@ export default function Home() {
             desc: 'Replies are timed to feel natural, not bot-like.'
           },
         ].map((f, i) => (
-          <div key={f.title} className="bg-neutral-900/80 rounded-2xl p-6 shadow-lg border border-neutral-800 hover:scale-105 hover:shadow-wa-glow transition-all">
+          <div key={f.title} className="bg-neutral-900/80 rounded-2xl p-6 shadow-lg border border-neutral-800 hover:scale-105 transition-all">
             {f.icon}
             <h3 className="mt-4 text-xl font-bold text-white">{f.title}</h3>
             <p className="text-neutral-300 mt-2">{f.desc}</p>
@@ -107,7 +107,7 @@ export default function Home() {
 
       {/* How it Works Section */}
       <section className="w-full max-w-4xl py-16 px-4 flex flex-col items-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-wa-green drop-shadow-wa-glow">How It Works</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-wa-green">How It Works</h2>
         <ol className="space-y-6 text-left w-full max-w-2xl mx-auto">
           {[
             'Download WhatsDate Beta and install on your PC.',
@@ -116,7 +116,7 @@ export default function Home() {
             'Chat as usual – WhatsDate handles the rest!',
           ].map((step, i) => (
             <li key={i} className="flex items-start gap-4">
-              <span className="w-8 h-8 flex items-center justify-center rounded-full bg-wa-green text-white font-bold text-lg shadow-wa-glow">{i + 1}</span>
+              <span className="w-8 h-8 flex items-center justify-center rounded-full bg-wa-green text-white font-bold text-lg">{i + 1}</span>
               <span className="text-lg md:text-xl text-white">{step}</span>
             </li>
           ))}
