@@ -54,11 +54,11 @@ export default function RootLayout({
               </div>
             </div>
             {/* Bottom row: Navigation */}
-            <div className="flex flex-wrap items-center justify-center px-4 py-2 gap-4 border-t border-neutral-800/50">
-              <Link href="/" className="hover:text-wa-green transition-colors text-base font-semibold">Home</Link>
-              <Link href="/features" className="hover:text-wa-green transition-colors text-base font-semibold">Features</Link>
-              <Link href="/how-it-works" className="hover:text-wa-green transition-colors text-base font-semibold">How it Works</Link>
-              <Link href="/download" className="hover:text-wa-green transition-colors font-bold underline underline-offset-4 text-base">Download Beta</Link>
+            <div className="flex items-center justify-center px-2 py-2 gap-2 border-t border-neutral-800/50">
+              <Link href="/" className="hover:text-wa-green transition-colors text-sm font-semibold underline underline-offset-2">Home</Link>
+              <Link href="/features" className="hover:text-wa-green transition-colors text-sm font-semibold underline underline-offset-2">Features</Link>
+              <Link href="/how-it-works" className="hover:text-wa-green transition-colors text-sm font-semibold underline underline-offset-2">How It Works</Link>
+              <Link href="/download" className="hover:text-wa-green transition-colors font-bold text-sm underline underline-offset-2">Download</Link>
             </div>
           </div>
           
