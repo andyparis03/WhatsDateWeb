@@ -11,7 +11,7 @@ export default function Home() {
       <section className="w-full flex flex-col items-center justify-center min-h-[70vh] py-16 px-4 text-center bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 relative overflow-hidden">
         <div className="flex flex-col items-center mb-4">
           <span className="inline-block bg-wa-green text-white font-bold px-4 py-1 rounded-full text-lg shadow-wa mb-2 animate-pulse">🚀 BETA LAUNCH</span>
-          <span className="inline-block bg-wa-light text-wa-dark font-semibold px-3 py-1 rounded-full text-md shadow border border-wa-green mb-2">100 FREE CREDITS for Early Testers!</span>
+          <span className="inline-block bg-wa-light text-wa-dark font-semibold px-3 py-1 rounded-full text-md shadow border border-wa-green mb-2">!! 1000 Autoreply Messages FREE for Early Testers !!</span>
         </div>
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-white drop-shadow-wa-glow flex items-center justify-center gap-4">
           Meet
@@ -19,12 +19,12 @@ export default function Home() {
           <span className="text-wa-green">WhatsDate</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="text-xl md:text-2xl text-neutral-300 max-w-2xl mb-8">
-          <strong className="text-wa-green">🎉 LIMITED TIME BETA:</strong> Get <span className="font-bold text-wa-green">100 FREE AI responses</span> when you join our exclusive beta program. Never run out of things to say again!
+          <strong className="text-wa-green">🎉 LIMITED TIME BETA:</strong> Get <span className="font-bold text-wa-green">1000 FREE AI responses</span> when you join our exclusive beta program. Never run out of things to say again!
         </motion.p>
         <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-4">
           <Link href="/download">
             <motion.button whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} className="px-8 py-4 rounded-full bg-wa-green text-white text-xl font-bold shadow-wa transition-all hover:scale-105 hover:shadow-wa-glow">
-              🎁 Claim 100 FREE Credits
+              🎁 Claim 1000 FREE Credits
             </motion.button>
           </Link>
           <span className="text-wa-green font-bold animate-pulse">⏰ Beta spots are limited!</span>
@@ -38,7 +38,7 @@ export default function Home() {
         </motion.div>
         <div className="flex flex-row gap-8 justify-center mt-4">
           <div className="flex flex-col items-center">
-            <span className="text-3xl font-extrabold text-wa-green">100</span>
+            <span className="text-3xl font-extrabold text-wa-green">1000</span>
             <span className="text-white font-semibold">FREE Credits</span>
           </div>
           <div className="flex flex-col items-center">
@@ -46,7 +46,7 @@ export default function Home() {
             <span className="text-white font-semibold">Early Access</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-3xl font-extrabold text-wa-green">$0</span>
+            <span className="text-3xl font-extrabold text-wa-green">€0$</span>
             <span className="text-white font-semibold">No Cost</span>
           </div>
         </div>

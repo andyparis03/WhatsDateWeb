@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaWindows, FaApple, FaLinux, FaDownload, FaQuestionCircle, FaGithub } from "react-icons/fa";
+import { MdEmail, MdFileDownload } from "react-icons/md";
+import { FaGift, FaLock, FaRegCommentDots } from "react-icons/fa";
 
 export default function DownloadPage() {
   return (
@@ -30,12 +32,47 @@ export default function DownloadPage() {
       </div>
       <div className="w-full max-w-2xl bg-neutral-900/80 rounded-2xl p-6 shadow-lg border border-neutral-800 mb-10">
         <h2 className="text-2xl font-bold text-wa-green mb-4 flex items-center gap-2"><FaDownload /> Installation Instructions</h2>
-        <ol className="list-decimal list-inside text-neutral-200 space-y-2 text-lg">
-          <li>Click the <span className="text-wa-green font-bold">Download for Windows</span> button above.</li>
-          <li>Run the downloaded <span className="font-mono">.exe</span> file.</li>
-          <li>Follow the on-screen prompts to complete installation.</li>
-          <li>Open WhatsDate and scan the QR code with your WhatsApp app.</li>
-        </ol>
+        <div className="flex flex-col gap-4">
+          {/* Step 01 */}
+          <div className="flex items-center gap-4 text-sm">
+            <span className="text-xl font-extrabold text-wa-green drop-shadow-wa-glow">01</span>
+            <MdFileDownload size={28} className="text-[#00e676] bg-black rounded-md p-1 shadow" />
+            <div>
+              <span className="font-bold text-white">Download & Install</span>
+              <div className="text-neutral-300">Download WhatsDate for your platform and install it in seconds. No complex setup required.</div>
+            </div>
+          </div>
+          {/* Step 02 */}
+          <div className="flex items-center gap-4 text-sm">
+            <span className="text-xl font-extrabold text-wa-green drop-shadow-wa-glow">02</span>
+            <FaGift size={28} className="text-[#ffb300] bg-black rounded-md p-1 shadow" />
+            <div>
+              <span className="font-bold text-white">Ask for your free credit via email</span>
+              <div className="text-neutral-300">Claim your 1000 FREE credits for WhatsDate activation. </div>
+              <a href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Beta%20Free%20Credit%20Request&body=Hi%2C%20I%20would%20like%20to%20claim%20my%201000%20free%20credits%20for%20WhatsDate%20Beta!" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1 mt-1 rounded-full bg-wa-green text-white text-xs font-bold shadow-wa transition-all hover:scale-105 hover:shadow-wa-glow">
+                <MdEmail size={16} /> Claim Free Credits
+              </a>
+            </div>
+          </div>
+          {/* Step 03 */}
+          <div className="flex items-center gap-4 text-sm">
+            <span className="text-xl font-extrabold text-wa-green drop-shadow-wa-glow">03</span>
+            <FaLock size={28} className="text-[#ffd600] bg-black rounded-md p-1 shadow" />
+            <div>
+              <span className="font-bold text-white">Connect WhatsApp</span>
+              <div className="text-neutral-300">Scan the QR code to connect your WhatsApp account. Your data stays private and secure in your pc.</div>
+            </div>
+          </div>
+          {/* Step 04 */}
+          <div className="flex items-center gap-4 text-sm">
+            <span className="text-xl font-extrabold text-wa-green drop-shadow-wa-glow">04</span>
+            <FaRegCommentDots size={28} className="text-white bg-black rounded-md p-1 shadow" />
+            <div>
+              <span className="font-bold text-white">Start Chatting</span>
+              <div className="text-neutral-300">Enable AI assistance and watch as perfect responses are generated automatically for your conversations.</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="w-full max-w-2xl bg-neutral-900/80 rounded-2xl p-6 shadow-lg border border-neutral-800 mb-10">
         <h2 className="text-2xl font-bold text-wa-green mb-4">System Requirements</h2>
@@ -52,11 +89,18 @@ export default function DownloadPage() {
           <li><span className="font-bold text-wa-green">Q:</span> Is WhatsDate safe to use?<br /><span className="ml-6">A: Yes! All your chats stay on your device. No OpenAI API key needed.</span></li>
           <li><span className="font-bold text-wa-green">Q:</span> How do I get my WhatsApp ID?<br /><span className="ml-6">A: The app will show your ID after you scan the QR code and log in.</span></li>
           <li><span className="font-bold text-wa-green">Q:</span> Can I turn off auto-reply?<br /><span className="ml-6">A: Yes! You can enable/disable auto-reply for each contact or globally in the app settings.</span></li>
-          <li><span className="font-bold text-wa-green">Q:</span> Where do I send feedback?<br /><span className="ml-6">A: Please use the feedback form in the app or email us (details in the app footer).</span></li>
+          <li><span className="font-bold text-wa-green">Q:</span> Where do I send feedback?<br /><span className="ml-6">You can send an email to: <a href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Feedback&body=Hi!%2C%20I%20would%20like%20to%20give%20you%20my%20feedback%20about%20your%20WhatsDate%20app.">
+          whatsdate.info@gmail.com</a> </span></li>
         </ul>
       </div>
       <div className="w-full max-w-2xl text-center text-neutral-400 text-md mt-4">
         <span>WhatsDate Beta is free for a limited time. Your feedback helps us improve – thank you for being an early adopter! 💖</span>
+      </div>
+      {/* Contact Email */}
+      <div className="w-full flex justify-center mt-6">
+        <a href="mailto:whatsdate.info@gmail.com" className="flex items-center gap-2 text-wa-green font-semibold text-lg hover:underline">
+          <MdEmail size={22} /> whatsdate.info@gmail.com
+        </a>
       </div>
     </div>
   );

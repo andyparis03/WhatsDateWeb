@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -15,8 +14,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: "WhatsDate – AI Dating Assistant",
   description: "AI-powered WhatsApp auto-reply app. Download the free beta!",
@@ -27,11 +24,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Theme toggle state (dark/light)
-  // This is a placeholder; will be replaced with a client component for interactivity
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`min-h-screen bg-neutral-950 text-white ${geistSans.variable} ${geistMono.variable} ${inter.className} transition-colors duration-500`}>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-white`}>
         <header className="w-full flex items-center justify-between px-6 py-4 border-b border-neutral-800 bg-neutral-950/80 sticky top-0 z-50 backdrop-blur-md">
           <div className="flex items-center gap-3">
             <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
