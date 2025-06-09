@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { FaRobot, FaLock, FaMagic, FaWhatsapp, FaRegSmile } from 'react-icons/fa';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -12,8 +13,10 @@ export default function Home() {
           <span className="inline-block bg-wa-green text-white font-bold px-4 py-1 rounded-full text-lg shadow-wa mb-2 animate-pulse">🚀 BETA LAUNCH</span>
           <span className="inline-block bg-wa-light text-wa-dark font-semibold px-3 py-1 rounded-full text-md shadow border border-wa-green mb-2">100 FREE CREDITS for Early Testers!</span>
         </div>
-        <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-white drop-shadow-wa-glow">
-          Meet <span className="text-wa-green">WhatsDate</span>
+        <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-white drop-shadow-wa-glow flex items-center justify-center gap-4">
+          Meet
+          <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={64} height={64} className="inline-block h-16 w-16 object-contain mx-2" />
+          <span className="text-wa-green">WhatsDate</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="text-xl md:text-2xl text-neutral-300 max-w-2xl mb-8">
           <strong className="text-wa-green">🎉 LIMITED TIME BETA:</strong> Get <span className="font-bold text-wa-green">100 FREE AI responses</span> when you join our exclusive beta program. Never run out of things to say again!

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,8 @@ export default function RootLayout({
       <body className={`min-h-screen bg-neutral-950 text-white ${geistSans.variable} ${geistMono.variable} ${inter.className} transition-colors duration-500`}>
         <header className="w-full flex items-center justify-between px-6 py-4 border-b border-neutral-800 bg-neutral-950/80 sticky top-0 z-50 backdrop-blur-md">
           <div className="flex items-center gap-3">
-            <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">💬 WhatsDate</span>
+            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
+            <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
           </div>
           <nav className="flex gap-6 text-lg font-semibold">
             <Link href="/" className="hover:text-wa-green transition-colors">Home</Link>
