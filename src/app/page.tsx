@@ -12,11 +12,23 @@ export default function Home() {
           <span className="inline-block bg-wa-green text-white font-bold px-4 py-1 rounded-full text-lg shadow-wa mb-2 animate-pulse">🚀 BETA LAUNCH</span>
           <span className="inline-block bg-wa-light text-wa-dark font-semibold px-3 py-1 rounded-full text-md shadow border border-wa-green mb-2">!! 1000 Autoreply Messages FREE for Early Testers !!</span>
         </div>
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-white drop-shadow-wa-glow flex items-center justify-center gap-4">
+        {/* Desktop heading: single row */}
+        <h1 className="hidden md:flex text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight text-white drop-shadow-wa-glow items-center justify-center gap-4">
           Meet
           <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={64} height={64} className="inline-block h-16 w-16 object-contain mx-2" />
           <span className="text-wa-green">WhatsDate</span>
         </h1>
+        
+        {/* Mobile heading: two rows */}
+        <div className="md:hidden flex flex-col items-center justify-center mb-6">
+          <div className="flex items-center justify-center gap-4 text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow-wa-glow">
+            Meet
+            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={64} height={64} className="inline-block h-16 w-16 object-contain mx-2" />
+          </div>
+          <div className="text-5xl font-extrabold tracking-tight leading-tight text-wa-green drop-shadow-wa-glow">
+            WhatsDate
+          </div>
+        </div>
         <p className="text-xl md:text-2xl text-neutral-300 max-w-2xl mb-8">
           <strong className="text-wa-green">🎉 LIMITED TIME BETA:</strong> Get <span className="font-bold text-wa-green">1000 FREE AI responses</span> when you join our exclusive beta program. Never run out of things to say again!
         </p>
