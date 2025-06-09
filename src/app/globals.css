@@ -38,10 +38,10 @@ body {
   background: var(--color-wa-green) !important;
 }
 .shadow-wa {
-  box-shadow: 0 0 8px #25D366, 0 0 16px #25D366;
+  box-shadow: none;
 }
 .drop-shadow-wa-glow {
-  filter: drop-shadow(0 0 8px #25D366) drop-shadow(0 0 16px #25D366);
+  filter: none;
 }
 
 @keyframes spin-slow {

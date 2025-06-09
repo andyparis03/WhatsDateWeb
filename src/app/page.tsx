@@ -29,6 +29,11 @@ export default function Home() {
             WhatsDate
           </div>
         </div>
+        
+        {/* Subtitle */}
+        <p className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+          Powerful AI chatbot designed for modern dating
+        </p>
         <p className="text-xl md:text-2xl text-neutral-300 max-w-2xl mb-8">
           <strong className="text-wa-green">🎉 LIMITED TIME BETA:</strong> Get <span className="font-bold text-wa-green">1000 FREE AI responses</span> when you join our exclusive beta program. Never run out of things to say again!
         </p>

@@ -42,7 +42,7 @@ export default function FeaturesPage() {
         Why Choose WhatsDate?
       </motion.h1>
       <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }} className="text-lg md:text-xl text-neutral-300 max-w-2xl mb-12 text-center">
-        Powerful AI features designed for modern dating. Experience the future of conversations with WhatsDate Beta.
+        Powerful AI chatbot designed for modern dating. Experience the future of conversations with WhatsDate Beta.
       </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl">
         {features.map((f, i) => (
