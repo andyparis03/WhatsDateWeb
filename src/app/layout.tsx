@@ -50,7 +50,7 @@ export default function RootLayout({
             <div className="flex items-center justify-center px-6 py-3">
               <div className="flex items-center gap-3">
                 <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
-                <span className="text-2xl font-extrabold tracking-tight text-wa-green">WhatsDate</span>
+                <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
               </div>
             </div>
             {/* Bottom row: Navigation */}
@@ -66,7 +66,7 @@ export default function RootLayout({
           <div className="hidden md:flex items-center justify-between px-6 py-4">
             <div className="flex items-center gap-3">
               <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
-              <span className="text-2xl font-extrabold tracking-tight text-wa-green">WhatsDate</span>
+              <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
             </div>
             <nav className="flex gap-6 text-lg font-semibold">
               <Link href="/" className="hover:text-wa-green transition-colors">Home</Link>
