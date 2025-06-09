@@ -74,6 +74,16 @@ body, .transition-all, .transition-colors {
 
 @layer base {
   html {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
     overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
   }
 }
