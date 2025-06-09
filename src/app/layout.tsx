@@ -26,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-white`}>
         <header className="w-full flex items-center justify-between px-6 py-4 border-b border-neutral-800 bg-neutral-950/80 sticky top-0 z-50 backdrop-blur-md">
           <div className="flex items-center gap-3">
