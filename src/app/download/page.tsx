@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaWindows, FaApple, FaLinux, FaDownload, FaQuestionCircle } from "react-icons/fa";
+import { FaWindows, FaApple, FaLinux, FaDownload, FaQuestionCircle, FaGithub } from "react-icons/fa";
 
 export default function DownloadPage() {
   return (
@@ -12,7 +12,7 @@ export default function DownloadPage() {
         Try WhatsDate for free! Available for Windows (macOS coming soon). Your feedback helps us build the future of AI-powered dating.
       </motion.p>
       <div className="flex flex-col md:flex-row gap-6 mb-10">
-        <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} href="#" className="flex items-center gap-3 px-8 py-4 rounded-full bg-wa-green text-white text-xl font-bold shadow-wa transition-all hover:scale-105 hover:shadow-wa-glow">
+        <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} href="https://github.com/WhatsDate/WhatsDate/releases/download/v0.0.1-beta/WhatsDate-0.0.1.Setup.exe" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-8 py-4 rounded-full bg-wa-green text-white text-xl font-bold shadow-wa transition-all hover:scale-105 hover:shadow-wa-glow">
           <FaWindows size={28} /> Download for Windows
         </motion.a>
         <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} href="#" className="flex items-center gap-3 px-8 py-4 rounded-full bg-neutral-800 text-white text-xl font-bold shadow-wa transition-all opacity-60 cursor-not-allowed">
@@ -20,6 +20,12 @@ export default function DownloadPage() {
         </motion.a>
         <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #25D366' }} href="#" className="flex items-center gap-3 px-8 py-4 rounded-full bg-neutral-800 text-white text-xl font-bold shadow-wa transition-all opacity-60 cursor-not-allowed">
           <FaLinux size={28} /> Coming Soon (Linux)
+        </motion.a>
+      </div>
+      {/* GitHub Release Button */}
+      <div className="flex justify-center mb-10">
+        <motion.a whileHover={{ scale: 1.08, boxShadow: '0 0 16px #333' }} href="https://github.com/WhatsDate/WhatsDate/releases/tag/v0.0.1-beta" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-8 py-4 rounded-full bg-neutral-900 text-white text-xl font-bold shadow transition-all hover:scale-105 hover:shadow-lg border border-wa-green">
+          <FaGithub size={28} /> View on GitHub
         </motion.a>
       </div>
       <div className="w-full max-w-2xl bg-neutral-900/80 rounded-2xl p-6 shadow-lg border border-neutral-800 mb-10">
