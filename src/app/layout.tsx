@@ -43,19 +43,40 @@ export default function RootLayout({
         WebkitTextSizeAdjust: '100%',
         overflow: 'hidden auto'
       }}>
-        <header className="w-full flex items-center justify-between px-6 py-4 border-b border-neutral-800 bg-neutral-950/80 sticky top-0 z-50 backdrop-blur-md">
-          <div className="flex items-center gap-3">
-            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
-            <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
+        <header className="w-full border-b border-neutral-800 bg-neutral-950/80 sticky top-0 z-50 backdrop-blur-md">
+          {/* Mobile: Two-row layout */}
+          <div className="md:hidden">
+            {/* Top row: Logo and brand */}
+            <div className="flex items-center justify-center px-6 py-3">
+              <div className="flex items-center gap-3">
+                <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
+                <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
+              </div>
+            </div>
+            {/* Bottom row: Navigation */}
+            <div className="flex flex-wrap items-center justify-center px-4 py-2 gap-4 border-t border-neutral-800/50">
+              <Link href="/" className="hover:text-wa-green transition-colors text-base font-semibold">Home</Link>
+              <Link href="/features" className="hover:text-wa-green transition-colors text-base font-semibold">Features</Link>
+              <Link href="/how-it-works" className="hover:text-wa-green transition-colors text-base font-semibold">How it Works</Link>
+              <Link href="/download" className="hover:text-wa-green transition-colors font-bold underline underline-offset-4 text-base">Download Beta</Link>
+            </div>
           </div>
-          <nav className="flex gap-6 text-lg font-semibold">
-            <Link href="/" className="hover:text-wa-green transition-colors">Home</Link>
-            <Link href="/features" className="hover:text-wa-green transition-colors">Features</Link>
-            <Link href="/how-it-works" className="hover:text-wa-green transition-colors">How it Works</Link>
-            <Link href="/download" className="hover:text-wa-green transition-colors font-bold underline underline-offset-4">Download Beta</Link>
-          </nav>
-          {/* Theme toggle placeholder */}
-          <button className="ml-6 px-3 py-1 rounded-full bg-neutral-800 text-wa-green font-bold shadow-wa hover:bg-neutral-700 transition-all">☾</button>
+          
+          {/* Desktop: Single row layout */}
+          <div className="hidden md:flex items-center justify-between px-6 py-4">
+            <div className="flex items-center gap-3">
+              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
+              <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
+            </div>
+            <nav className="flex gap-6 text-lg font-semibold">
+              <Link href="/" className="hover:text-wa-green transition-colors">Home</Link>
+              <Link href="/features" className="hover:text-wa-green transition-colors">Features</Link>
+              <Link href="/how-it-works" className="hover:text-wa-green transition-colors">How it Works</Link>
+              <Link href="/download" className="hover:text-wa-green transition-colors font-bold underline underline-offset-4">Download Beta</Link>
+            </nav>
+            {/* Theme toggle placeholder */}
+            <button className="ml-6 px-3 py-1 rounded-full bg-neutral-800 text-wa-green font-bold shadow-wa hover:bg-neutral-700 transition-all">☾</button>
+          </div>
         </header>
         <main className="flex flex-col items-center w-full flex-1">{children}</main>
         <footer className="w-full text-center py-6 text-neutral-400 text-sm border-t border-neutral-800 bg-neutral-950/80 mt-12">
