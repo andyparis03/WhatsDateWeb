@@ -1,5 +1,5 @@
 @echo off
-cd /d %~dp0websitecursor
+cd /d C:\WElectron\websitecursor
 
 REM Stage all changes
 git add .
@@ -15,6 +15,6 @@ for /f "tokens=1-2 delims=: " %%a in ('time /t') do (
 git commit -m "Update: !DATE!_!TIME!"
 
 REM Push to main branch
-git push origin main --force
+git push origin main
 
 pause
