@@ -15,6 +15,6 @@ for /f "tokens=1-2 delims=: " %%a in ('time /t') do (
 git commit -m "Update: !DATE!_!TIME!"
 
 REM Push to main branch
-git push origin main
+git push origin main --force
 
 pause
