@@ -31,6 +31,8 @@ function LayoutContent({ children }: { children: ReactNode }) {
   // Touch event handlers for swipe
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const [swipeOffset, setSwipeOffset] = useState(0);
   
   // Minimum swipe distance
   const minSwipeDistance = 50;
@@ -38,14 +40,28 @@ function LayoutContent({ children }: { children: ReactNode }) {
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
+    setSwipeOffset(0);
   };
   
   const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    if (!touchStart) return;
+    
+    const currentTouch = e.targetTouches[0].clientX;
+    const diff = currentTouch - touchStart;
+    
+    // Limit the swipe offset to prevent over-swiping
+    const maxOffset = 100;
+    const limitedOffset = Math.max(-maxOffset, Math.min(maxOffset, diff * 0.5));
+    
+    setSwipeOffset(limitedOffset);
+    setTouchEnd(currentTouch);
   };
   
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+    if (!touchStart || !touchEnd) {
+      setSwipeOffset(0);
+      return;
+    }
     
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
@@ -53,14 +69,28 @@ function LayoutContent({ children }: { children: ReactNode }) {
     
     const currentIndex = pageSequence.indexOf(pathname);
     
+    setIsNavigating(true);
+    
     if (isLeftSwipe && currentIndex < pageSequence.length - 1) {
       // Swipe left - go to next page
-      router.push(pageSequence[currentIndex + 1]);
-    }
-    
-    if (isRightSwipe && currentIndex > 0) {
+      setSwipeOffset(-200); // Animate out to the left
+      setTimeout(() => {
+        router.push(pageSequence[currentIndex + 1]);
+        setSwipeOffset(0);
+        setIsNavigating(false);
+      }, 200);
+    } else if (isRightSwipe && currentIndex > 0) {
       // Swipe right - go to previous page
-      router.push(pageSequence[currentIndex - 1]);
+      setSwipeOffset(200); // Animate out to the right
+      setTimeout(() => {
+        router.push(pageSequence[currentIndex - 1]);
+        setSwipeOffset(0);
+        setIsNavigating(false);
+      }, 200);
+    } else {
+      // Reset if swipe wasn't sufficient
+      setSwipeOffset(0);
+      setIsNavigating(false);
     }
   };
 
@@ -136,7 +166,16 @@ function LayoutContent({ children }: { children: ReactNode }) {
           </button>
         </div>
       </header>
-      <main className="flex flex-col items-center w-full flex-1">{children}</main>
+      <main 
+        className="flex flex-col items-center w-full flex-1"
+        style={{
+          transform: `translateX(${swipeOffset}px)`,
+          transition: isNavigating ? 'transform 0.2s ease-out' : 'transform 0.1s ease-out',
+          opacity: isNavigating ? 0.7 : 1
+        }}
+      >
+        {children}
+      </main>
       <footer className={`w-full text-center py-6 text-sm border-t mt-12 ${
         theme === 'light' ? 'text-neutral-800 border-wa-green bg-wa-bg-accent/80' : 'text-neutral-400 border-neutral-800 bg-neutral-950/80'
       }`}>
