@@ -1,7 +1,23 @@
 @import "tailwindcss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Bahnschrift font for all headings */
+.bahnschrift-heading {
+  font-family: 'Bahnschrift SemiBold Condensed', 'Bahnschrift', 'Arial Narrow', 'Arial Black', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Legacy condensed heading support */
+.condensed-heading {
+  font-family: 'Bahnschrift SemiBold Condensed', 'Bahnschrift', 'Arial Narrow', 'Arial Black', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
 
 :root {
   --background: #F7FFF9;
