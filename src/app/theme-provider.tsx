@@ -136,10 +136,46 @@ function LayoutContent({ children }: { children: ReactNode }) {
           <div className={`flex items-center justify-center px-2 py-2 gap-2 border-t ${
             theme === 'light' ? 'border-wa-green/50' : 'border-neutral-800/50'
           }`}>
-            <Link href="/" className="hover:text-wa-green transition-colors text-sm font-semibold underline underline-offset-2">Home</Link>
-            <Link href="/features" className="hover:text-wa-green transition-colors text-sm font-semibold underline underline-offset-2">Features</Link>
-            <Link href="/how-it-works" className="hover:text-wa-green transition-colors text-sm font-semibold underline underline-offset-2">How It Works</Link>
-            <Link href="/download" className="hover:text-wa-green transition-colors font-bold text-sm underline underline-offset-2">Download</Link>
+            <Link 
+              href="/" 
+              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
+                pathname === '/' 
+                  ? 'font-extrabold text-wa-green' 
+                  : 'font-semibold'
+              }`}
+            >
+              Home
+            </Link>
+            <Link 
+              href="/features" 
+              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
+                pathname === '/features' 
+                  ? 'font-extrabold text-wa-green' 
+                  : 'font-semibold'
+              }`}
+            >
+              Features
+            </Link>
+            <Link 
+              href="/how-it-works" 
+              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
+                pathname === '/how-it-works' 
+                  ? 'font-extrabold text-wa-green' 
+                  : 'font-semibold'
+              }`}
+            >
+              How It Works
+            </Link>
+            <Link 
+              href="/download" 
+              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
+                pathname === '/download' 
+                  ? 'font-extrabold text-wa-green' 
+                  : 'font-bold'
+              }`}
+            >
+              Download
+            </Link>
           </div>
         </div>
         
