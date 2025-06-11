@@ -4,11 +4,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7FFF9;
+  --foreground: #222222;
   --color-wa-green: #25D366;
   --color-wa-dark: #075E54;
   --color-wa-light: #DCF8C6;
+  --color-wa-bg-accent: #E6F9EF;
+  --color-wa-accent-pink: #FFB6EC;
+  --color-wa-accent-yellow: #FFF9C4;
 }
 
 @theme inline {
@@ -20,8 +23,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #E6F9EF;
+    --foreground: #171717;
   }
 }
 
@@ -67,8 +70,8 @@ body, .transition-all, .transition-colors {
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
   body {
-    background: #0a0a0a;
-    color: #fff;
+    background: #E6F9EF;
+    color: #171717;
   }
 }
 

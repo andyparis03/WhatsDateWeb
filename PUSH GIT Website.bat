@@ -1,5 +1,5 @@
 @echo off
-cd /d %~dp0websitecursor
+cd /d C:\WElectron\websitecursor
 
 REM Stage all changes
 git add .
