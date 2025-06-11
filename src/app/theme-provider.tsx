@@ -39,11 +39,20 @@ function LayoutContent({ children }: { children: ReactNode }) {
         {/* Mobile: Two-row layout */}
         <div className="md:hidden">
           {/* Top row: Logo and brand */}
-          <div className="flex items-center justify-center px-6 py-3">
+          <div className="flex items-center justify-between px-6 py-3">
             <div className="flex items-center gap-3">
               <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
               <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
             </div>
+            {/* Theme toggle button for mobile */}
+            <button 
+              onClick={toggleTheme}
+              className={`px-3 py-1 rounded-full text-wa-green font-bold shadow-wa transition-all ${
+                theme === 'light' ? 'bg-wa-bg-accent hover:bg-wa-bg-light' : 'bg-neutral-800 hover:bg-neutral-700'
+              }`}
+            >
+              {theme === 'light' ? '☾' : '☀'}
+            </button>
           </div>
           {/* Bottom row: Navigation */}
           <div className={`flex items-center justify-center px-2 py-2 gap-2 border-t ${
