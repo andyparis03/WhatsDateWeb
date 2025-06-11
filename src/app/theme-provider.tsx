@@ -2,6 +2,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, usePathname } from 'next/navigation';
 
 // Theme Context
 interface ThemeContextType {
@@ -21,18 +22,65 @@ export const useTheme = () => {
 
 function LayoutContent({ children }: { children: ReactNode }) {
   const { theme, toggleTheme } = useTheme();
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  // Page sequence for swipe navigation
+  const pageSequence = ['/', '/features', '/how-it-works', '/download'];
+  
+  // Touch event handlers for swipe
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  
+  // Minimum swipe distance
+  const minSwipeDistance = 50;
+  
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    const currentIndex = pageSequence.indexOf(pathname);
+    
+    if (isLeftSwipe && currentIndex < pageSequence.length - 1) {
+      // Swipe left - go to next page
+      router.push(pageSequence[currentIndex + 1]);
+    }
+    
+    if (isRightSwipe && currentIndex > 0) {
+      // Swipe right - go to previous page
+      router.push(pageSequence[currentIndex - 1]);
+    }
+  };
 
   return (
-    <div className={`min-h-screen ${
-      theme === 'light' ? 'bg-wa-bg-light text-wa-dark' : 'bg-neutral-950 text-white'
-    }`} style={{
-      touchAction: 'manipulation',
-      WebkitUserSelect: 'none',
-      userSelect: 'none',
-      WebkitTouchCallout: 'none',
-      WebkitTextSizeAdjust: '100%',
-      overflow: 'hidden auto'
-    }}>
+    <div 
+      className={`min-h-screen ${
+        theme === 'light' ? 'bg-wa-bg-light text-wa-dark' : 'bg-neutral-950 text-white'
+      }`} 
+      style={{
+        touchAction: 'manipulation',
+        WebkitUserSelect: 'none',
+        userSelect: 'none',
+        WebkitTouchCallout: 'none',
+        WebkitTextSizeAdjust: '100%',
+        overflow: 'hidden auto'
+      }}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <header className={`w-full border-b sticky top-0 z-50 backdrop-blur-md ${
         theme === 'light' ? 'border-wa-green bg-wa-green-light' : 'border-neutral-800 bg-neutral-950/80'
       }`}>
