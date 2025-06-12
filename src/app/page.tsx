@@ -151,6 +151,172 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How it Works Section */}
+      <section id="how-it-works" className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-title text-primary mb-4">Get Started In Minutes</h2>
+          <p className="text-paragraph text-secondary mb-16 max-w-2xl mx-auto">
+            Simple setup process that gets you connected and conversing naturally
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                step: '01',
+                title: 'Download',
+                desc: 'Get WhatsDate for your device'
+              },
+              {
+                step: '02', 
+                title: 'Connect',
+                desc: 'Scan QR code with WhatsApp'
+              },
+              {
+                step: '03',
+                title: 'Customize',
+                desc: 'Set your conversation style'
+              },
+              {
+                step: '04',
+                title: 'Chat',
+                desc: 'Let AI handle the responses'
+              }
+            ].map((item, i) => (
+              <div key={i} className="text-center">
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ${
+                  theme === 'light' ? 'bg-black' : 'bg-white text-black'
+                }`}>
+                  {item.step}
+                </div>
+                <h3 className="text-subtitle text-primary mb-2">{item.title}</h3>
+                <p className="text-paragraph text-secondary">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Download Section */}
+      <section id="download" className="w-full py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-title text-primary mb-6">
+            Download WhatsDate Beta
+          </h2>
+          <p className="text-paragraph text-secondary mb-12 max-w-2xl mx-auto">
+            Get early access to WhatsDate and start having better conversations today. 
+            Currently available for Windows, with macOS and Linux support coming soon.
+          </p>
+
+          {/* Download Buttons */}
+          <div className="flex flex-col md:flex-row gap-6 mb-12 justify-center">
+            <a 
+              href="https://github.com/WhatsDate/WhatsDate/releases/tag/v.0.0.1" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`flex items-center justify-center gap-4 px-8 py-4 rounded-full text-xl font-semibold transition-all hover:scale-105 ${
+                theme === 'light' ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'
+              }`}
+            >
+              <FaWindows size={24} /> Download for Windows
+            </a>
+            
+            <button 
+              className={`flex items-center justify-center gap-4 px-8 py-4 rounded-full text-xl font-semibold opacity-50 cursor-not-allowed ${
+                theme === 'light' ? 'bg-light-gray text-secondary' : 'bg-gray-700 text-gray-400'
+              }`}
+              disabled
+            >
+              <FaApple size={24} /> Coming Soon (macOS)
+            </button>
+          </div>
+
+          {/* GitHub Link */}
+          <div className="mb-16">
+            <a 
+              href="https://github.com/WhatsDate/WhatsDate/releases/tag/v0.0.1-beta" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-lg font-medium border transition-all hover:scale-105 ${
+                theme === 'light' ? 'border-border-neutral text-secondary hover:text-primary' : 'border-gray-600 text-gray-300 hover:text-white'
+              }`}
+            >
+              <FaGithub size={20} /> View on GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Installation Steps Section */}
+      <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-title text-primary text-center mb-8">Installation Steps</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                step: '01',
+                title: 'Download & Install',
+                desc: 'Download WhatsDate for your platform and install it in seconds. No complex setup required.'
+              },
+              {
+                step: '02',
+                title: 'Claim Free Credits',
+                desc: 'Email us to claim your 1000 FREE credits for WhatsDate activation.',
+                hasEmail: true
+              },
+              {
+                step: '03',
+                title: 'Connect WhatsApp',
+                desc: 'Scan the QR code to connect your WhatsApp account. Your data stays private and secure.'
+              },
+              {
+                step: '04',
+                title: 'Start Chatting',
+                desc: 'Enable AI assistance and watch as perfect responses are generated automatically.'
+              }
+            ].map((item, i) => (
+              <div key={i} className="text-left">
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
+                    theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
+                  }`}>
+                    {item.step}
+                  </div>
+                  <div>
+                    <h4 className="text-subtitle text-primary mb-2">{item.title}</h4>
+                    <p className="text-paragraph text-secondary mb-3">{item.desc}</p>
+                    {item.hasEmail && (
+                      <a 
+                        href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Beta%20Free%20Credit%20Request&body=Hi%2C%20I%20would%20like%20to%20claim%20my%201000%20free%20credits%20for%20WhatsDate%20Beta!" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105 ${
+                          theme === 'light' ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'
+                        }`}
+                      >
+                        <MdEmail size={16} /> Claim Free Credits
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* System Requirements Section */}
+      <section className="w-full py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-title text-primary mb-6">System Requirements</h2>
+          <ul className="text-paragraph text-secondary space-y-2 max-w-md mx-auto text-left">
+            <li>• Windows 10 or later (64-bit)</li>
+            <li>• Active WhatsApp account</li>
+            <li>• Internet connection</li>
+            <li>• ~200MB free disk space</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-primary' : 'bg-black'}`}>
         <div className="max-w-6xl mx-auto text-center">
@@ -219,53 +385,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it Works Section */}
-      <section id="how-it-works" className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-title text-primary mb-4">Get Started In Minutes</h2>
-          <p className="text-paragraph text-secondary mb-16 max-w-2xl mx-auto">
-            Simple setup process that gets you connected and conversing naturally
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                step: '01',
-                title: 'Download',
-                desc: 'Get WhatsDate for your device'
-              },
-              {
-                step: '02', 
-                title: 'Connect',
-                desc: 'Scan QR code with WhatsApp'
-              },
-              {
-                step: '03',
-                title: 'Customize',
-                desc: 'Set your conversation style'
-              },
-              {
-                step: '04',
-                title: 'Chat',
-                desc: 'Let AI handle the responses'
-              }
-            ].map((item, i) => (
-              <div key={i} className="text-center">
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ${
-                  theme === 'light' ? 'bg-black' : 'bg-white text-black'
-                }`}>
-                  {item.step}
-                </div>
-                <h3 className="text-subtitle text-primary mb-2">{item.title}</h3>
-                <p className="text-paragraph text-secondary">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* News Section */}
-      <section className="w-full py-20 px-6">
+      <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-title text-primary mb-4">WhatsDate News</h2>
           <p className="text-paragraph text-secondary mb-16">
@@ -297,7 +418,7 @@ export default function Home() {
               }
             ].map((news, i) => (
               <div key={i} className={`rounded-2xl p-6 text-left ${
-                theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'
+                theme === 'light' ? 'bg-white' : 'bg-gray-700'
               }`}>
                 <div className="flex items-center gap-3 mb-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${news.tagColor}`}>
@@ -314,7 +435,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
+      <section className="w-full py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-title text-primary text-center mb-16">Frequently Asked Questions</h2>
           
@@ -346,7 +467,7 @@ export default function Home() {
               }
             ].map((faq, i) => (
               <details key={i} className={`rounded-lg p-6 ${
-                theme === 'light' ? 'bg-white' : 'bg-gray-700'
+                theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'
               }`}>
                 <summary className="cursor-pointer text-subtitle text-primary flex items-center gap-3">
                   <span className="text-green-400">●</span>
@@ -357,127 +478,6 @@ export default function Home() {
                 </div>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Download Section */}
-      <section id="download" className="w-full py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-title text-primary mb-6">
-            Download WhatsDate Beta
-          </h2>
-          <p className="text-paragraph text-secondary mb-12 max-w-2xl mx-auto">
-            Get early access to WhatsDate and start having better conversations today. 
-            Currently available for Windows, with macOS and Linux support coming soon.
-          </p>
-
-          {/* Download Buttons */}
-          <div className="flex flex-col md:flex-row gap-6 mb-12 justify-center">
-            <a 
-              href="https://github.com/WhatsDate/WhatsDate/releases/tag/v.0.0.1" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className={`flex items-center justify-center gap-4 px-8 py-4 rounded-full text-xl font-semibold transition-all hover:scale-105 ${
-                theme === 'light' ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'
-              }`}
-            >
-              <FaWindows size={24} /> Download for Windows
-            </a>
-            
-            <button 
-              className={`flex items-center justify-center gap-4 px-8 py-4 rounded-full text-xl font-semibold opacity-50 cursor-not-allowed ${
-                theme === 'light' ? 'bg-light-gray text-secondary' : 'bg-gray-700 text-gray-400'
-              }`}
-              disabled
-            >
-              <FaApple size={24} /> Coming Soon (macOS)
-            </button>
-          </div>
-
-          {/* GitHub Link */}
-          <div className="mb-16">
-            <a 
-              href="https://github.com/WhatsDate/WhatsDate/releases/tag/v0.0.1-beta" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-lg font-medium border transition-all hover:scale-105 ${
-                theme === 'light' ? 'border-border-neutral text-secondary hover:text-primary' : 'border-gray-600 text-gray-300 hover:text-white'
-              }`}
-            >
-              <FaGithub size={20} /> View on GitHub
-            </a>
-          </div>
-
-          {/* Installation Steps */}
-          <div className={`rounded-2xl p-8 mb-16 ${
-            theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'
-          }`}>
-            <h3 className="text-title text-primary mb-8">Installation Steps</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                {
-                  step: '01',
-                  title: 'Download & Install',
-                  desc: 'Download WhatsDate for your platform and install it in seconds. No complex setup required.'
-                },
-                {
-                  step: '02',
-                  title: 'Claim Free Credits',
-                  desc: 'Email us to claim your 1000 FREE credits for WhatsDate activation.',
-                  hasEmail: true
-                },
-                {
-                  step: '03',
-                  title: 'Connect WhatsApp',
-                  desc: 'Scan the QR code to connect your WhatsApp account. Your data stays private and secure.'
-                },
-                {
-                  step: '04',
-                  title: 'Start Chatting',
-                  desc: 'Enable AI assistance and watch as perfect responses are generated automatically.'
-                }
-              ].map((item, i) => (
-                <div key={i} className="text-left">
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
-                      theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
-                    }`}>
-                      {item.step}
-                    </div>
-                    <div>
-                      <h4 className="text-subtitle text-primary mb-2">{item.title}</h4>
-                      <p className="text-paragraph text-secondary mb-3">{item.desc}</p>
-                      {item.hasEmail && (
-                        <a 
-                          href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Beta%20Free%20Credit%20Request&body=Hi%2C%20I%20would%20like%20to%20claim%20my%201000%20free%20credits%20for%20WhatsDate%20Beta!" 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105 ${
-                            theme === 'light' ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'
-                          }`}
-                        >
-                          <MdEmail size={16} /> Claim Free Credits
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* System Requirements */}
-          <div className={`rounded-2xl p-8 ${
-            theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'
-          }`}>
-            <h3 className="text-title text-primary mb-6">System Requirements</h3>
-            <ul className="text-paragraph text-secondary space-y-2 max-w-md mx-auto text-left">
-              <li>• Windows 10 or later (64-bit)</li>
-              <li>• Active WhatsApp account</li>
-              <li>• Internet connection</li>
-              <li>• ~200MB free disk space</li>
-            </ul>
           </div>
         </div>
       </section>
