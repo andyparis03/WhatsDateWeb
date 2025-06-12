@@ -19,10 +19,10 @@ export default function Home() {
             <span className="hidden md:inline">Meet</span>
             <span className="md:hidden">Meet</span>
             <span className="hidden md:inline mx-4">
-              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={100} height={100} className="inline-block h-22 w-22 object-contain" />
+              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={88} height={88} className="inline-block h-22 w-22 object-contain" />
             </span>
             <span className="md:hidden">
-              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={100} height={100} className="inline-block h-18 w-18 object-contain" />
+              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={88} height={88} className="inline-block h-18 w-18 object-contain" />
             </span>
             <span className="hidden md:inline">WhatsDate</span>
             <span className="md:hidden">WhatsDate</span>
