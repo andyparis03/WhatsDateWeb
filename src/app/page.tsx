@@ -15,9 +15,9 @@ export default function Home() {
       }`}>
         {/* Main Title */}
         <div className="flex flex-col items-center mb-8">
-          <h1 className="text-title text-primary flex items-center justify-center gap-4 mb-4">
+          <h1 className="text-primary flex items-center justify-center gap-2 md:gap-4 mb-4 text-4xl md:text-title font-semibold">
             Meet
-            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={80} height={80} className="inline-block h-16 w-16 md:h-20 md:w-20 object-contain" />
+            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={80} height={80} className="inline-block h-12 w-12 md:h-20 md:w-20 object-contain" />
             WhatsDate
           </h1>
           <p className="text-subtitle text-secondary max-w-3xl">
