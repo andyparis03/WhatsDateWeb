@@ -25,8 +25,8 @@ function LayoutContent({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   
-  // Page sequence for swipe navigation
-  const pageSequence = ['/', '/features', '/how-it-works', '/download'];
+  // Page sequence for swipe navigation (now using anchors)
+  const pageSequence = ['#home', '#features', '#how-it-works', '#download'];
   
   // Touch event handlers for swipe
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -97,7 +97,7 @@ function LayoutContent({ children }: { children: ReactNode }) {
   return (
     <div 
       className={`min-h-screen ${
-        theme === 'light' ? 'bg-wa-bg-light text-wa-dark' : 'bg-neutral-950 text-white'
+        theme === 'light' ? 'bg-white text-primary' : 'bg-gray-900 text-white'
       }`} 
       style={{
         touchAction: 'manipulation',
@@ -112,70 +112,48 @@ function LayoutContent({ children }: { children: ReactNode }) {
       onTouchEnd={onTouchEnd}
     >
       <header className={`w-full border-b sticky top-0 z-50 backdrop-blur-md ${
-        theme === 'light' ? 'border-wa-green bg-wa-green-light' : 'border-neutral-800 bg-neutral-950/80'
+        theme === 'light' ? 'border-border-neutral bg-white/80' : 'border-gray-700 bg-gray-900/80'
       }`}>
         {/* Mobile: Two-row layout */}
         <div className="md:hidden">
           {/* Top row: Logo and brand */}
-          <div className="flex items-center justify-between px-6 py-3">
+          <div className="flex items-center justify-between px-6 py-4">
             <div className="flex items-center gap-3">
-              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
-              <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
+              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={32} height={32} className="h-8 w-8 object-contain" />
+              <span className="text-xl font-semibold text-primary">WhatsDate</span>
             </div>
             {/* Theme toggle button for mobile */}
             <button 
               onClick={toggleTheme}
-              className={`px-3 py-1 rounded-full text-wa-green font-bold shadow-wa transition-all ${
-                theme === 'light' ? 'bg-wa-bg-accent hover:bg-wa-bg-light' : 'bg-neutral-800 hover:bg-neutral-700'
+              className={`px-3 py-2 rounded-lg transition-all ${
+                theme === 'light' ? 'bg-light-gray hover:bg-medium-gray text-primary' : 'bg-gray-700 hover:bg-gray-600 text-white'
               }`}
             >
               {theme === 'light' ? '☾' : '☀'}
             </button>
           </div>
           {/* Bottom row: Navigation */}
-          <div className={`flex items-center justify-center px-2 py-2 gap-2 border-t ${
-            theme === 'light' ? 'border-wa-green/50' : 'border-neutral-800/50'
+          <div className={`flex items-center justify-center px-6 py-3 gap-8 border-t ${
+            theme === 'light' ? 'border-border-neutral' : 'border-gray-700'
           }`}>
-            <Link 
-              href="/" 
-              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
-                pathname === '/' 
-                  ? 'font-extrabold text-wa-green' 
-                  : 'font-semibold'
-              }`}
+            <a 
+              href="#home" 
+              className="text-lg font-medium transition-colors text-secondary hover:text-primary"
             >
               Home
-            </Link>
-            <Link 
-              href="/features" 
-              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
-                pathname === '/features' 
-                  ? 'font-extrabold text-wa-green' 
-                  : 'font-semibold'
-              }`}
+            </a>
+            <a 
+              href="#how-it-works" 
+              className="text-lg font-medium transition-colors text-secondary hover:text-primary"
             >
-              Features
-            </Link>
-            <Link 
-              href="/how-it-works" 
-              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
-                pathname === '/how-it-works' 
-                  ? 'font-extrabold text-wa-green' 
-                  : 'font-semibold'
-              }`}
-            >
-              How It Works
-            </Link>
-            <Link 
-              href="/download" 
-              className={`hover:text-wa-green transition-colors text-sm underline underline-offset-2 ${
-                pathname === '/download' 
-                  ? 'font-extrabold text-wa-green' 
-                  : 'font-bold'
-              }`}
+              How it Works
+            </a>
+            <a 
+              href="#download" 
+              className="text-lg font-semibold transition-colors text-primary hover:text-accent"
             >
               Download
-            </Link>
+            </a>
           </div>
         </div>
         
@@ -183,19 +161,37 @@ function LayoutContent({ children }: { children: ReactNode }) {
         <div className="hidden md:flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={40} height={40} className="h-10 w-10 object-contain" />
-            <span className="text-2xl font-extrabold tracking-tight text-wa-green drop-shadow-wa-glow">WhatsDate</span>
+            <span className="text-2xl font-semibold text-primary">WhatsDate</span>
           </div>
-          <nav className="flex gap-6 text-lg font-semibold">
-            <Link href="/" className="hover:text-wa-green transition-colors">Home</Link>
-            <Link href="/features" className="hover:text-wa-green transition-colors">Features</Link>
-            <Link href="/how-it-works" className="hover:text-wa-green transition-colors">How it Works</Link>
-            <Link href="/download" className="hover:text-wa-green transition-colors font-bold underline underline-offset-4">Download Beta</Link>
+          <nav className="flex gap-8 text-lg font-medium">
+            <a 
+              href="#home" 
+              className="transition-colors text-secondary hover:text-primary"
+            >
+              Home
+            </a>
+            <a 
+              href="#how-it-works" 
+              className="transition-colors text-secondary hover:text-primary"
+            >
+              How it Works
+            </a>
+            <a 
+              href="#download" 
+              className={`px-6 py-2 rounded-full font-semibold transition-all hover:scale-105 ${
+                theme === 'light' 
+                  ? 'bg-black text-white hover:bg-gray-800' 
+                  : 'bg-white text-black hover:bg-gray-100'
+              }`}
+            >
+              Download Beta
+            </a>
           </nav>
           {/* Theme toggle button */}
           <button 
             onClick={toggleTheme}
-            className={`ml-6 px-3 py-1 rounded-full text-wa-green font-bold shadow-wa transition-all ${
-              theme === 'light' ? 'bg-wa-bg-accent hover:bg-wa-bg-light' : 'bg-neutral-800 hover:bg-neutral-700'
+            className={`ml-6 px-3 py-2 rounded-lg transition-all ${
+              theme === 'light' ? 'bg-light-gray hover:bg-medium-gray text-primary' : 'bg-gray-700 hover:bg-gray-600 text-white'
             }`}
           >
             {theme === 'light' ? '☾' : '☀'}
@@ -212,11 +208,6 @@ function LayoutContent({ children }: { children: ReactNode }) {
       >
         {children}
       </main>
-      <footer className={`w-full text-center py-6 text-sm border-t mt-12 ${
-        theme === 'light' ? 'text-neutral-800 border-wa-green bg-wa-bg-accent/80' : 'text-neutral-400 border-neutral-800 bg-neutral-950/80'
-      }`}>
-        &copy; {new Date().getFullYear()} WhatsDate. All rights reserved.
-      </footer>
     </div>
   );
 }

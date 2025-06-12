@@ -1,513 +1,324 @@
 'use client';
-import { FaRobot, FaLock, FaMagic, FaWhatsapp, FaRegSmile, FaWindows, FaApple, FaLinux, FaDownload, FaQuestionCircle, FaGithub, FaUser, FaStar, FaNewspaper, FaEnvelope } from 'react-icons/fa';
-import { MdEmail, MdFileDownload } from "react-icons/md";
-import { FaGift, FaRegCommentDots } from "react-icons/fa";
-import Link from 'next/link';
+import { FaWindows, FaApple, FaLinux, FaGithub } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import Image from 'next/image';
 import { useTheme } from './theme-provider';
-import { motion } from 'framer-motion';
 
 export default function Home() {
   const { theme } = useTheme();
   
   return (
-    <div className="w-full flex flex-col items-center" style={{touchAction: 'auto'}}>
-      {/* Hero Section - Inspired by Thursday */}
-      <section className={`w-full flex flex-col items-center justify-center min-h-screen py-20 px-4 text-center relative overflow-hidden ${
-        theme === 'light' 
-          ? 'bg-gradient-to-b from-wa-bg-light via-wa-green-light to-wa-bg-light' 
-          : 'bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950'
+    <div className="w-full flex flex-col items-center">
+      {/* Hero Section */}
+      <section id="home" className={`w-full flex flex-col items-center justify-center min-h-[90vh] py-20 px-6 text-center relative ${
+        theme === 'light' ? 'bg-white' : 'bg-gray-900'
       }`}>
+        {/* Main Title */}
         <div className="flex flex-col items-center mb-8">
-          <span className={`inline-block bg-wa-green font-bold px-6 py-2 rounded-full text-lg shadow-wa mb-4 animate-pulse ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>🚀 BETA LAUNCH</span>
-        </div>
-        
-        {/* Hero Text - Meet WhatsDate */}
-        <div className="flex flex-col items-center mb-8">
-          {/* First Line: Meet (logo) WhatsDate - Desktop */}
-          <div className="hidden md:flex items-center justify-center gap-4 mb-4">
-            <span className={`bahnschrift-heading font-semibold ${
-              theme === 'light' ? 'text-black' : 'text-white'
-            }`} style={{ fontSize: '56px', lineHeight: '1.1' }}>
-              Meet
-            </span>
-            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={64} height={64} className="h-16 w-16 object-contain mx-2" />
-            <span className="bahnschrift-heading font-semibold text-wa-green" style={{ fontSize: '56px', lineHeight: '1.1' }}>
-              WhatsDate
-            </span>
-          </div>
-          
-          {/* First Line: Meet (logo) WhatsDate - Mobile */}
-          <div className="md:hidden flex flex-col items-center justify-center gap-2 mb-4">
-            <div className="flex items-center justify-center gap-2">
-              <span className={`bahnschrift-heading font-semibold ${
-                theme === 'light' ? 'text-black' : 'text-white'
-              }`} style={{ fontSize: '40px', lineHeight: '1.1' }}>
-                Meet
-              </span>
-              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={48} height={48} className="h-12 w-12 object-contain mx-1" />
-            </div>
-            <span className="bahnschrift-heading font-semibold text-wa-green" style={{ fontSize: '40px', lineHeight: '1.1' }}>
-              WhatsDate
-            </span>
-          </div>
-          
-          {/* Second Line: Subtitle */}
-          <p className={`bahnschrift-heading font-semibold text-center max-w-4xl px-4 ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`} style={{ fontSize: 'clamp(24px, 5vw, 32px)', lineHeight: '1.2' }}>
+          <h1 className="text-title text-primary flex items-center justify-center gap-4 mb-4">
+            Meet
+            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={80} height={80} className="inline-block h-16 w-16 md:h-20 md:w-20 object-contain" />
+            WhatsDate
+          </h1>
+          <p className="text-subtitle text-secondary max-w-3xl">
             The smartest AI chatbot designed for modern dating
           </p>
         </div>
 
-        {/* Value Proposition */}
-        <p className={`text-2xl md:text-3xl font-bold mb-12 max-w-4xl ${
-          theme === 'light' ? 'text-black' : 'text-white'
-        }`}>
-          Because 2025 is about authentic conversations...not awkward small talk.
-        </p>
-
-        {/* Beta Stats */}
-        <div className="flex flex-row gap-8 justify-center mb-12">
-          <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-black text-wa-green">1000</span>
-            <span className={`font-bold text-lg ${theme === 'light' ? 'text-black' : 'text-white'}`}>FREE CREDITS</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-black text-wa-green">BETA</span>
-            <span className={`font-bold text-lg ${theme === 'light' ? 'text-black' : 'text-white'}`}>EARLY ACCESS</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-4xl md:text-5xl font-black text-wa-green">€0</span>
-            <span className={`font-bold text-lg ${theme === 'light' ? 'text-black' : 'text-white'}`}>NO COST</span>
-          </div>
+        {/* Key Message */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <p className="text-paragraph text-primary mb-6">
+            Because 2025 is about authentic conversations... not awkward small talk.
+          </p>
+          <p className="text-paragraph text-secondary">
+            WhatsDate uses advanced AI to help you maintain meaningful conversations with your matches, 
+            so you can focus on building real connections instead of struggling with what to say next.
+          </p>
         </div>
 
         {/* CTA Button */}
-        <motion.a 
-          href="#download" 
-          whileHover={{ scale: 1.05 }}
-          className={`px-12 py-6 rounded-full bg-wa-green text-2xl font-black shadow-wa transition-all hover:shadow-wa-glow mb-8 ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}
-        >
-          🎁 CLAIM 1000 FREE CREDITS
-        </motion.a>
-
-        {/* Demo Video */}
-        <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl border-4 border-wa-green">
-          <video autoPlay loop muted playsInline className={`w-full h-80 object-cover ${
-            theme === 'light' ? 'bg-wa-green-light' : 'bg-black'
-          }`}>
-            <source src="/demo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        <div className="mb-16">
+          <a href="#download">
+            <button className={`px-12 py-4 text-xl font-semibold rounded-full transition-all hover:scale-105 ${
+              theme === 'light' 
+                ? 'bg-black text-white hover:bg-gray-800' 
+                : 'bg-white text-black hover:bg-gray-100'
+            }`}>
+              Try WhatsDate Beta
+            </button>
+          </a>
         </div>
 
-        <div className="flex items-center gap-4 mt-8">
-          <span className={`text-lg font-bold ${theme === 'light' ? 'text-black' : 'text-white'}`}>
-            Follow us @whatsdate.dating
-          </span>
-        </div>
-      </section>
-
-      {/* How It Works Section - Thursday style */}
-      <section id="how-it-works" className={`w-full py-20 px-4 ${
-        theme === 'light' ? 'bg-white' : 'bg-neutral-950'
-      }`}>
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className={`bahnschrift-heading text-5xl md:text-6xl font-semibold mb-4 ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>
-            HOW IT WORKS
-          </h2>
-          <p className={`text-2xl mb-16 ${
-            theme === 'light' ? 'text-neutral-600' : 'text-neutral-400'
-          }`}>
-            Get perfect replies in 4 simple steps...
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                number: "01",
-                title: "Download & Install",
-                desc: "Download WhatsDate for your platform and install it in seconds.",
-                icon: <MdFileDownload size={48} className="text-[#00e676]" />
-              },
-              {
-                number: "02", 
-                title: "Get Free Credits",
-                desc: "Email us to claim your 1000 FREE beta credits instantly.",
-                icon: <FaGift size={48} className="text-[#ffb300]" />
-              },
-              {
-                number: "03",
-                title: "Connect WhatsApp", 
-                desc: "Scan QR code to connect. Your data stays private on your device.",
-                icon: <FaLock size={48} className="text-[#ffd600]" />
-              },
-              {
-                number: "04",
-                title: "Start Chatting",
-                desc: "Enable AI assistance and get perfect responses automatically.",
-                icon: <FaRegCommentDots size={48} className="text-wa-green" />
-              }
-            ].map((step) => (
-              <motion.div 
-                key={step.number}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className={`p-8 rounded-2xl text-center ${
-                  theme === 'light' ? 'bg-wa-green-light' : 'bg-neutral-900'
-                }`}
-              >
-                <div className="text-wa-green text-4xl font-black mb-4">{step.number}</div>
-                <div className="mb-4">{step.icon}</div>
-                <h3 className={`text-xl font-bold mb-2 ${
-                  theme === 'light' ? 'text-black' : 'text-white'
-                }`}>{step.title}</h3>
-                <p className={`${
-                  theme === 'light' ? 'text-neutral-700' : 'text-neutral-300'
-                }`}>{step.desc}</p>
-              </motion.div>
-            ))}
+        {/* Hero Image/Video */}
+        <div className="w-full max-w-4xl">
+          <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-light-gray">
+            <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+              <source src="/demo.mp4" type="video/mp4" />
+              <div className="w-full h-full bg-light-gray flex items-center justify-center">
+                <span className="text-secondary">Demo Video Placeholder</span>
+              </div>
+            </video>
           </div>
         </div>
       </section>
 
-      {/* Features Showcase - Thursday style */}
-      <section id="features" className={`w-full py-20 px-4 ${
-        theme === 'light' ? 'bg-wa-green-light' : 'bg-neutral-900'
-      }`}>
+      {/* Features Section */}
+      <section id="features" className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`bahnschrift-heading text-5xl md:text-6xl font-semibold mb-16 text-center ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>
-            FEATURES
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-title text-primary mb-4">Why WhatsDate Works</h2>
+            <p className="text-paragraph text-secondary max-w-3xl mx-auto">
+              Advanced AI technology designed specifically for dating conversations
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {[
               {
-                icon: <FaRobot size={48} className="text-wa-green" />,
                 title: 'AI Auto-Reply',
-                desc: 'Smart, context-aware replies to your WhatsApp messages that feel completely natural.'
+                desc: 'Smart, context-aware responses that feel natural and engaging',
+                image: '/ai-brain-chat.png',
+                alt: 'AI brain with chat bubbles'
               },
               {
-                icon: <FaLock size={48} className="text-wa-green" />,
-                title: 'Privacy Focused',
-                desc: 'Your chats stay on your device. No OpenAI key needed. Complete privacy guaranteed.'
+                title: 'Privacy First',
+                desc: 'Your conversations stay private. No external API keys required',
+                image: '/privacy-shield.png',
+                alt: 'Privacy shield protecting messages'
               },
               {
-                icon: <FaMagic size={48} className="text-wa-green" />,
-                title: 'Custom Prompts',
-                desc: "Tweak the AI's personality and response style to match your dating approach."
-              },
-              {
-                icon: <FaWhatsapp size={48} className="text-wa-green" />,
                 title: 'WhatsApp Native',
-                desc: 'Works directly with WhatsApp Web. Simple QR code login, no complexity.'
-              },
-              {
-                icon: <FaRegSmile size={48} className="text-wa-green" />,
-                title: 'Emoji Reactions',
-                desc: 'React with emojis to trigger instant AI replies. Smart and intuitive.'
-              },
-              {
-                icon: <FaRobot size={48} className="text-wa-green" />,
-                title: 'Human Timing',
-                desc: 'Replies are timed perfectly to feel natural, never bot-like or rushed.'
-              },
+                desc: 'Works seamlessly with your existing WhatsApp conversations',
+                image: '/whatsapp-integration.png',
+                alt: 'WhatsApp integration mockup'
+              }
             ].map((feature, i) => (
-              <motion.div 
-                key={feature.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`p-8 rounded-2xl text-center hover:scale-105 transition-all ${
-                  theme === 'light' ? 'bg-white' : 'bg-neutral-800'
-                }`}
-              >
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className={`text-xl font-bold mb-4 ${
-                  theme === 'light' ? 'text-black' : 'text-white'
-                }`}>{feature.title}</h3>
-                <p className={`${
-                  theme === 'light' ? 'text-neutral-700' : 'text-neutral-300'
-                }`}>{feature.desc}</p>
-              </motion.div>
+              <div key={i} className="text-center">
+                <div className="aspect-square rounded-2xl mb-6 overflow-hidden">
+                  <Image 
+                    src={feature.image} 
+                    alt={feature.alt} 
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-subtitle text-primary mb-3">{feature.title}</h3>
+                <p className="text-paragraph text-secondary">{feature.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Download Section */}
-      <section id="download" className={`w-full py-20 px-4 ${
-        theme === 'light' ? 'bg-white' : 'bg-neutral-950'
-      }`}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className={`bahnschrift-heading text-5xl md:text-6xl font-semibold mb-8 ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>
-            DOWNLOAD THE APP
-          </h2>
-          <p className={`text-2xl mb-12 ${
-            theme === 'light' ? 'text-neutral-600' : 'text-neutral-400'
-          }`}>
-            Available for Windows. macOS and Linux coming soon.
-          </p>
-
-          {/* Download Buttons */}
-          <div className="flex flex-col md:flex-row gap-6 justify-center mb-12">
-            <motion.a 
-              whileHover={{ scale: 1.05 }} 
-              href="https://github.com/WhatsDate/WhatsDate/releases/download/v0.0.1-beta/WhatsDate-0.0.1.Setup.exe" 
-          target="_blank"
-          rel="noopener noreferrer"
-              className={`flex items-center gap-3 px-8 py-4 rounded-full bg-wa-green text-xl font-bold shadow-wa transition-all ${
-                theme === 'light' ? 'text-black' : 'text-white'
-              }`}
-            >
-              <FaWindows size={28} /> Download for Windows
-            </motion.a>
-            
-            <motion.a 
-              href="#" 
-              className={`flex items-center gap-3 px-8 py-4 rounded-full text-xl font-bold opacity-60 cursor-not-allowed ${
-                theme === 'light' ? 'bg-neutral-200 text-neutral-600' : 'bg-neutral-800 text-neutral-400'
-              }`}
-            >
-              <FaApple size={28} /> Coming Soon (macOS)
-            </motion.a>
-            
-            <motion.a 
-              href="#" 
-              className={`flex items-center gap-3 px-8 py-4 rounded-full text-xl font-bold opacity-60 cursor-not-allowed ${
-                theme === 'light' ? 'bg-neutral-200 text-neutral-600' : 'bg-neutral-800 text-neutral-400'
-              }`}
-            >
-              <FaLinux size={28} /> Coming Soon (Linux)
-            </motion.a>
-          </div>
-
-          <div className="flex justify-center mb-12">
-            <motion.a 
-              whileHover={{ scale: 1.05 }} 
-              href="https://github.com/WhatsDate/WhatsDate/releases/tag/v0.0.1-beta" 
-          target="_blank"
-          rel="noopener noreferrer"
-              className={`flex items-center gap-3 px-8 py-4 rounded-full text-xl font-bold border border-wa-green ${
-                theme === 'light' ? 'bg-wa-green-light text-black' : 'bg-neutral-900 text-white'
-              }`}
-            >
-              <FaGithub size={28} /> View on GitHub
-            </motion.a>
-          </div>
-
-          {/* Email CTA */}
-          <div className={`p-8 rounded-2xl mb-12 ${
-            theme === 'light' ? 'bg-wa-green-light' : 'bg-neutral-900'
-          }`}>
-            <h3 className={`text-2xl font-bold mb-4 ${
-              theme === 'light' ? 'text-black' : 'text-white'
-            }`}>
-              Claim Your 1000 FREE Credits
-            </h3>
-            <p className={`text-lg mb-6 ${
-              theme === 'light' ? 'text-neutral-700' : 'text-neutral-300'
-            }`}>
-              Email us to activate your beta credits and start using WhatsDate for free!
-            </p>
-            <motion.a 
-              whileHover={{ scale: 1.05 }}
-              href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Beta%20Free%20Credit%20Request&body=Hi%2C%20I%20would%20like%20to%20claim%20my%201000%20free%20credits%20for%20WhatsDate%20Beta!" 
-          target="_blank"
-          rel="noopener noreferrer"
-              className={`inline-flex items-center gap-3 px-8 py-4 rounded-full bg-wa-green text-xl font-bold shadow-wa transition-all ${
-                theme === 'light' ? 'text-black' : 'text-white'
-              }`}
-            >
-              <MdEmail size={24} /> Email for Free Credits
-            </motion.a>
-          </div>
-
-          {/* System Requirements */}
-          <div className={`p-8 rounded-2xl text-left ${
-            theme === 'light' ? 'bg-neutral-50' : 'bg-neutral-800'
-          }`}>
-            <h3 className={`text-2xl font-bold mb-4 text-wa-green`}>System Requirements</h3>
-            <ul className={`list-disc list-inside space-y-2 text-lg ${
-              theme === 'light' ? 'text-neutral-700' : 'text-neutral-300'
-            }`}>
-              <li>Windows 10 or later (64-bit)</li>
-              <li>Active WhatsApp account</li>
-              <li>Internet connection</li>
-              <li>~200MB free disk space</li>
-            </ul>
+      {/* Lifestyle Section */}
+      <section className="w-full py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-title text-primary mb-6">
+                Focus On The Connection, Not The Conversation
+              </h2>
+              <p className="text-paragraph text-secondary mb-8">
+                Stop overthinking every message. WhatsDate handles the small talk 
+                so you can focus on building genuine connections with people you actually like.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Natural conversation flow</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Personalized responses</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Human-like timing</span>
+                </div>
+              </div>
+            </div>
+            <div className="aspect-square rounded-2xl overflow-hidden">
+              <Image 
+                src="/lifestyle-couple.png" 
+                alt="Couple connecting and using WhatsDate" 
+                width={500}
+                height={500}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className={`w-full py-20 px-4 ${
-        theme === 'light' ? 'bg-wa-green-light' : 'bg-neutral-900'
-      }`}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className={`bahnschrift-heading text-5xl md:text-6xl font-semibold mb-16 text-center ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>
-            WHAT THEY SAY ABOUT US
+      <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-primary' : 'bg-black'}`}>
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className={`text-title mb-16 ${theme === 'light' ? 'text-white' : 'text-white'}`}>
+            What They Say About Us
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
+                rating: 5,
                 quote: "Thank you WhatsDate",
-                content: "I met my girlfriend using WhatsDate's perfect conversation starters. The AI knew exactly what to say when I was nervous!",
+                testimonial: "I met my girlfriend using WhatsDate's perfect conversation starters. The AI knew exactly what to say when I was nervous!",
                 name: "Alex Chen, 26",
-                rating: 5
+                color: "text-green-400"
               },
               {
+                rating: 5,
                 quote: "Never running out of words again",
-                content: "As someone who's naturally shy, WhatsDate gives me the confidence to keep conversations flowing naturally. It's like having a dating coach in my pocket.",
-                name: "Sarah Johnson, 24", 
-                rating: 5
+                testimonial: "As someone who's naturally shy, WhatsDate gives me the confidence to keep conversations flowing naturally. It's like having a dating coach in my pocket.",
+                name: "Sarah Johnson, 24",
+                color: "text-green-400"
               },
               {
+                rating: 5,
                 quote: "Game changer for dating",
-                content: "The AI responses are so natural that my matches never know I'm getting help. It's helped me go from awkward texts to meaningful conversations.",
+                testimonial: "The AI responses are so natural that my matches never know I'm getting help. It's helped me go from awkward texts to meaningful conversations.",
                 name: "Marcus Williams, 29",
-                rating: 5
+                color: "text-green-400"
               }
             ].map((testimonial, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                className={`p-8 rounded-2xl ${
-                  theme === 'light' ? 'bg-white' : 'bg-neutral-800'
-                }`}
-              >
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FaStar key={i} className="text-wa-green text-xl" />
+              <div key={i} className={`rounded-2xl p-8 ${theme === 'light' ? 'bg-gray-800' : 'bg-gray-800'} text-left`}>
+                {/* Star Rating */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, starIndex) => (
+                    <svg key={starIndex} className="w-5 h-5 text-green-400 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
                   ))}
                 </div>
-                <h4 className={`text-xl font-bold mb-4 text-wa-green`}>
+
+                {/* Quote */}
+                <h3 className={`text-subtitle mb-4 ${testimonial.color}`}>
                   "{testimonial.quote}"
-                </h4>
-                <p className={`text-lg mb-4 ${
-                  theme === 'light' ? 'text-neutral-700' : 'text-neutral-300'
-                }`}>
-                  {testimonial.content}
+                </h3>
+
+                {/* Testimonial Text */}
+                <p className="text-paragraph text-gray-300 mb-6">
+                  {testimonial.testimonial}
                 </p>
+
+                {/* User Profile */}
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-wa-green rounded-full flex items-center justify-center">
-                    <FaUser className={theme === 'light' ? 'text-black' : 'text-white'} />
+                  <div className="w-10 h-10 rounded-full bg-green-400 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+                    </svg>
                   </div>
-                  <span className={`font-semibold ${
-                    theme === 'light' ? 'text-black' : 'text-white'
-                  }`}>
+                  <span className="text-paragraph text-white font-medium">
                     {testimonial.name}
                   </span>
                 </div>
-              </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works Section */}
+      <section id="how-it-works" className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-title text-primary mb-4">Get Started In Minutes</h2>
+          <p className="text-paragraph text-secondary mb-16 max-w-2xl mx-auto">
+            Simple setup process that gets you connected and conversing naturally
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                step: '01',
+                title: 'Download',
+                desc: 'Get WhatsDate for your device'
+              },
+              {
+                step: '02', 
+                title: 'Connect',
+                desc: 'Scan QR code with WhatsApp'
+              },
+              {
+                step: '03',
+                title: 'Customize',
+                desc: 'Set your conversation style'
+              },
+              {
+                step: '04',
+                title: 'Chat',
+                desc: 'Let AI handle the responses'
+              }
+            ].map((item, i) => (
+              <div key={i} className="text-center">
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ${
+                  theme === 'light' ? 'bg-black' : 'bg-white text-black'
+                }`}>
+                  {item.step}
+                </div>
+                <h3 className="text-subtitle text-primary mb-2">{item.title}</h3>
+                <p className="text-paragraph text-secondary">{item.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* News Section */}
-      <section className={`w-full py-20 px-4 ${
-        theme === 'light' ? 'bg-white' : 'bg-neutral-950'
-      }`}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className={`bahnschrift-heading text-5xl md:text-6xl font-semibold mb-4 text-center ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>
-            WHATSDATE NEWS
-          </h2>
-          <p className={`text-2xl mb-16 text-center ${
-            theme === 'light' ? 'text-neutral-600' : 'text-neutral-400'
-          }`}>
+      <section className="w-full py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-title text-primary mb-4">WhatsDate News</h2>
+          <p className="text-paragraph text-secondary mb-16">
             Latest updates about WhatsDate and AI dating technology.
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
+                tag: "Launch",
+                date: "January 2025",
                 title: "WhatsDate Beta Launch",
-                excerpt: "We're excited to announce the beta launch of WhatsDate with 1000 free credits for early adopters.",
-                category: "Launch",
-                date: "January 2025"
+                description: "We're excited to announce the beta launch of WhatsDate with 1000 free credits for early adopters.",
+                tagColor: "bg-green-400"
               },
               {
+                tag: "Privacy",
+                date: "January 2025",
                 title: "Privacy-First AI Dating",
-                excerpt: "How WhatsDate keeps your conversations private while providing intelligent dating assistance.",
-                category: "Privacy", 
-                date: "January 2025"
+                description: "How WhatsDate keeps your conversations private while providing intelligent dating assistance.",
+                tagColor: "bg-green-400"
               },
               {
+                tag: "Updates",
+                date: "Coming Soon",
                 title: "macOS Version Coming Soon",
-                excerpt: "We're working hard to bring WhatsDate to macOS users. Beta testing starts next month.",
-                category: "Updates",
-                date: "Coming Soon"
+                description: "We're working hard to bring WhatsDate to macOS users. Beta testing starts next month.",
+                tagColor: "bg-green-400"
               }
-            ].map((article, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`p-6 rounded-2xl cursor-pointer hover:scale-105 transition-all ${
-                  theme === 'light' ? 'bg-wa-green-light' : 'bg-neutral-900'
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <FaNewspaper className="text-wa-green" />
-                  <span className="text-wa-green font-semibold text-sm">{article.category}</span>
-                  <span className={`text-sm ${
-                    theme === 'light' ? 'text-neutral-600' : 'text-neutral-400'
-                  }`}>
-                    • {article.date}
+            ].map((news, i) => (
+              <div key={i} className={`rounded-2xl p-6 text-left ${
+                theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'
+              }`}>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className={`px-3 py-1 rounded-full text-sm font-semibold text-white ${news.tagColor}`}>
+                    {news.tag}
                   </span>
+                  <span className="text-sm text-secondary">• {news.date}</span>
                 </div>
-                <h3 className={`text-xl font-bold mb-3 ${
-                  theme === 'light' ? 'text-black' : 'text-white'
-                }`}>
-                  {article.title}
-                </h3>
-                <p className={`${
-                  theme === 'light' ? 'text-neutral-700' : 'text-neutral-300'
-                }`}>
-                  {article.excerpt}
-                </p>
-              </motion.div>
+                <h3 className="text-subtitle text-primary mb-3">{news.title}</h3>
+                <p className="text-paragraph text-secondary">{news.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className={`w-full py-20 px-4 ${
-        theme === 'light' ? 'bg-wa-green-light' : 'bg-neutral-900'
-      }`}>
+      <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
         <div className="max-w-4xl mx-auto">
-          <h2 className={`bahnschrift-heading text-5xl md:text-6xl font-semibold mb-16 text-center ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>
-            F.A.Q
-          </h2>
+          <h2 className="text-title text-primary text-center mb-16">Frequently Asked Questions</h2>
           
-          <div className="space-y-8">
+          <div className="space-y-4">
             {[
               {
                 question: "What is WhatsDate?",
@@ -534,66 +345,268 @@ export default function Home() {
                 answer: "Our AI is trained to generate responses that feel completely natural and match your conversation style. The timing is also optimized to feel human, not bot-like."
               }
             ].map((faq, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`p-6 rounded-2xl ${
-                  theme === 'light' ? 'bg-white' : 'bg-neutral-800'
-                }`}
-              >
-                <h4 className={`text-xl font-bold mb-3 text-wa-green flex items-center gap-2`}>
-                  <FaQuestionCircle size={20} />
+              <details key={i} className={`rounded-lg p-6 ${
+                theme === 'light' ? 'bg-white' : 'bg-gray-700'
+              }`}>
+                <summary className="cursor-pointer text-subtitle text-primary flex items-center gap-3">
+                  <span className="text-green-400">●</span>
                   {faq.question}
-                </h4>
-                <p className={`text-lg leading-relaxed ${
-                  theme === 'light' ? 'text-neutral-700' : 'text-neutral-300'
-                }`}>
-                  {faq.answer}
-                </p>
-              </motion.div>
+                </summary>
+                <div className="mt-4 pl-6">
+                  <p className="text-paragraph text-secondary">{faq.answer}</p>
+                </div>
+              </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact/Newsletter Section */}
-      <section className={`w-full py-20 px-4 ${
-        theme === 'light' ? 'bg-white' : 'bg-neutral-950'
-      }`}>
+      {/* Download Section */}
+      <section id="download" className="w-full py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className={`bahnschrift-heading text-4xl md:text-5xl font-semibold mb-8 ${
-            theme === 'light' ? 'text-black' : 'text-white'
-          }`}>
-            GET BETTER AT DATING
+          <h2 className="text-title text-primary mb-6">
+            Download WhatsDate Beta
           </h2>
-          <p className={`text-xl mb-12 ${
-            theme === 'light' ? 'text-neutral-600' : 'text-neutral-400'
+          <p className="text-paragraph text-secondary mb-12 max-w-2xl mx-auto">
+            Get early access to WhatsDate and start having better conversations today. 
+            Currently available for Windows, with macOS and Linux support coming soon.
+          </p>
+
+          {/* Download Buttons */}
+          <div className="flex flex-col md:flex-row gap-6 mb-12 justify-center">
+            <a 
+              href="https://github.com/WhatsDate/WhatsDate/releases/tag/v.0.0.1" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`flex items-center justify-center gap-4 px-8 py-4 rounded-full text-xl font-semibold transition-all hover:scale-105 ${
+                theme === 'light' ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'
+              }`}
+            >
+              <FaWindows size={24} /> Download for Windows
+            </a>
+            
+            <button 
+              className={`flex items-center justify-center gap-4 px-8 py-4 rounded-full text-xl font-semibold opacity-50 cursor-not-allowed ${
+                theme === 'light' ? 'bg-light-gray text-secondary' : 'bg-gray-700 text-gray-400'
+              }`}
+              disabled
+            >
+              <FaApple size={24} /> Coming Soon (macOS)
+            </button>
+          </div>
+
+          {/* GitHub Link */}
+          <div className="mb-16">
+            <a 
+              href="https://github.com/WhatsDate/WhatsDate/releases/tag/v0.0.1-beta" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-lg font-medium border transition-all hover:scale-105 ${
+                theme === 'light' ? 'border-border-neutral text-secondary hover:text-primary' : 'border-gray-600 text-gray-300 hover:text-white'
+              }`}
+            >
+              <FaGithub size={20} /> View on GitHub
+            </a>
+          </div>
+
+          {/* Installation Steps */}
+          <div className={`rounded-2xl p-8 mb-16 ${
+            theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'
           }`}>
+            <h3 className="text-title text-primary mb-8">Installation Steps</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                {
+                  step: '01',
+                  title: 'Download & Install',
+                  desc: 'Download WhatsDate for your platform and install it in seconds. No complex setup required.'
+                },
+                {
+                  step: '02',
+                  title: 'Claim Free Credits',
+                  desc: 'Email us to claim your 1000 FREE credits for WhatsDate activation.',
+                  hasEmail: true
+                },
+                {
+                  step: '03',
+                  title: 'Connect WhatsApp',
+                  desc: 'Scan the QR code to connect your WhatsApp account. Your data stays private and secure.'
+                },
+                {
+                  step: '04',
+                  title: 'Start Chatting',
+                  desc: 'Enable AI assistance and watch as perfect responses are generated automatically.'
+                }
+              ].map((item, i) => (
+                <div key={i} className="text-left">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
+                      theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
+                    }`}>
+                      {item.step}
+                    </div>
+                    <div>
+                      <h4 className="text-subtitle text-primary mb-2">{item.title}</h4>
+                      <p className="text-paragraph text-secondary mb-3">{item.desc}</p>
+                      {item.hasEmail && (
+                        <a 
+                          href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Beta%20Free%20Credit%20Request&body=Hi%2C%20I%20would%20like%20to%20claim%20my%201000%20free%20credits%20for%20WhatsDate%20Beta!" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105 ${
+                            theme === 'light' ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-100'
+                          }`}
+                        >
+                          <MdEmail size={16} /> Claim Free Credits
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* System Requirements */}
+          <div className={`rounded-2xl p-8 ${
+            theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'
+          }`}>
+            <h3 className="text-title text-primary mb-6">System Requirements</h3>
+            <ul className="text-paragraph text-secondary space-y-2 max-w-md mx-auto text-left">
+              <li>• Windows 10 or later (64-bit)</li>
+              <li>• Active WhatsApp account</li>
+              <li>• Internet connection</li>
+              <li>• ~200MB free disk space</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-primary' : 'bg-black'}`}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className={`text-title mb-4 ${theme === 'light' ? 'text-white' : 'text-white'}`}>
+            Get Better At Dating
+          </h2>
+          <p className={`text-paragraph mb-12 ${theme === 'light' ? 'text-gray-300' : 'text-gray-300'}`}>
             Stay updated with dating tips, AI insights, and WhatsDate updates.
           </p>
           
-          <div className="flex flex-col items-center gap-6">
-            <motion.a 
-              whileHover={{ scale: 1.05 }}
-              href="mailto:whatsdate.info@gmail.com" 
-              className={`flex items-center gap-3 px-8 py-4 rounded-full bg-wa-green text-xl font-bold shadow-wa transition-all ${
-                theme === 'light' ? 'text-black' : 'text-white'
-              }`}
+          <div className="max-w-md mx-auto">
+            <a 
+              href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Updates%20Subscription&body=Hi%2C%20I%20would%20like%20to%20receive%20WhatsDate%20updates%20and%20dating%20tips!" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-xl font-semibold transition-all hover:scale-105 bg-green-400 text-white hover:bg-green-500"
             >
-              <FaEnvelope size={24} /> Contact Us
-            </motion.a>
-            
-            <p className={`text-sm ${
-              theme === 'light' ? 'text-neutral-600' : 'text-neutral-400'
-            }`}>
+              ✉ Contact Us
+            </a>
+            <p className={`text-sm mt-4 ${theme === 'light' ? 'text-gray-400' : 'text-gray-400'}`}>
               Follow us @whatsdate.dating for updates
             </p>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className={`w-full py-16 px-6 ${theme === 'light' ? 'bg-gray-900' : 'bg-gray-900'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-12">
+            {/* Brand Column */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">WhatsDate</h3>
+              <p className="text-paragraph text-gray-400">
+                The smartest AI dating assistant. Get perfect conversation starters and never run out of things to say.
+              </p>
+            </div>
+
+            {/* Product Column */}
+            <div>
+              <h4 className="text-xl font-semibold text-green-400 mb-6">Product</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#features" className="text-paragraph text-gray-400 hover:text-white transition-colors">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#download" className="text-paragraph text-gray-400 hover:text-white transition-colors">
+                    Download
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Beta%20Free%20Credit%20Request&body=Hi%2C%20I%20would%20like%20to%20claim%20my%201000%20free%20credits%20for%20WhatsDate%20Beta!" 
+                    className="text-paragraph text-gray-400 hover:text-white transition-colors"
+                  >
+                    Free Credits
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Support Column */}
+            <div>
+              <h4 className="text-xl font-semibold text-green-400 mb-6">Support</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a 
+                    href="mailto:whatsdate.info@gmail.com" 
+                    className="text-paragraph text-gray-400 hover:text-white transition-colors"
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://github.com/WhatsDate/WhatsDate/releases" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-paragraph text-gray-400 hover:text-white transition-colors"
+                  >
+                    Releases
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="mailto:whatsdate.info@gmail.com?subject=WhatsDate%20Feedback" 
+                    className="text-paragraph text-gray-400 hover:text-white transition-colors"
+                  >
+                    Feedback
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Connect Column */}
+            <div>
+              <h4 className="text-xl font-semibold text-green-400 mb-6">Connect</h4>
+              <div className="flex gap-4 mb-4">
+                <a 
+                  href="mailto:whatsdate.info@gmail.com" 
+                  className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition-colors"
+                >
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://github.com/WhatsDate/WhatsDate" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition-colors"
+                >
+                  <FaGithub className="w-6 h-6 text-white" />
+                </a>
+              </div>
+              <p className="text-paragraph text-gray-400">
+                Follow us @whatsdate.dating
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

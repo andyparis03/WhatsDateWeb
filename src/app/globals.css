@@ -1,66 +1,107 @@
-@import "tailwindcss";
+/* Import Bahnschrift font */
+@import url('https://fonts.googleapis.com/css2?family=Bahnschrift:wght@400;600;700&display=swap');
 
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Bahnschrift font for all headings */
-.bahnschrift-heading {
-  font-family: 'Bahnschrift SemiBold Condensed', 'Bahnschrift', 'Arial Narrow', 'Arial Black', system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-/* Legacy condensed heading support */
-.condensed-heading {
-  font-family: 'Bahnschrift SemiBold Condensed', 'Bahnschrift', 'Arial Narrow', 'Arial Black', system-ui, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
-}
-
 :root {
-  --background: #F7FFF9;
-  --foreground: #222222;
-  --color-wa-green: #25D366;
-  --color-wa-dark: #075E54;
-  --color-wa-light: #DCF8C6;
-  --color-wa-bg-accent: #E6F9EF;
-  --color-wa-accent-pink: #FFB6EC;
-  --color-wa-accent-yellow: #FFF9C4;
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --color-primary: #2B2B2B;
+  --color-secondary: #666666;
+  --color-accent: #000000;
+  --color-light-gray: #F5F5F5;
+  --color-medium-gray: #E5E5E5;
+  --color-border: #EEEEEE;
+  --color-text-muted: #888888;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Bahnschrift', system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #E6F9EF;
-    --foreground: #171717;
+    --background: #1A1A1A;
+    --foreground: #FFFFFF;
+    --color-primary: #FFFFFF;
+    --color-secondary: #CCCCCC;
+    --color-light-gray: #2A2A2A;
+    --color-medium-gray: #333333;
+    --color-border: #444444;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', 'Geist', 'sans-serif';
+  font-family: 'Bahnschrift', system-ui, sans-serif;
+  font-weight: 600;
 }
 
-.text-wa-green {
-  color: var(--color-wa-green) !important;
+/* Typography Scale */
+.text-title {
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
-.bg-wa-green {
-  background: var(--color-wa-green) !important;
+
+.text-subtitle {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
-.shadow-wa {
-  box-shadow: none;
+
+.text-paragraph {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
 }
-.drop-shadow-wa-glow {
-  filter: none;
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .text-title {
+    font-size: 40px;
+  }
+  
+  .text-subtitle {
+    font-size: 24px;
+  }
+  
+  .text-paragraph {
+    font-size: 18px;
+  }
+}
+
+/* Color utility classes */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-light-gray {
+  background-color: var(--color-light-gray);
+}
+
+.bg-medium-gray {
+  background-color: var(--color-medium-gray);
+}
+
+.border-neutral {
+  border-color: var(--color-border);
 }
 
 @keyframes spin-slow {
@@ -103,6 +144,8 @@ body, .transition-all, .transition-colors {
     -ms-touch-action: manipulation;
     -ms-content-zooming: none;
     -ms-user-select: none;
+    /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
   }
   
   body {
