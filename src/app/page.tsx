@@ -15,17 +15,10 @@ export default function Home() {
       }`}>
         {/* Main Title */}
         <div className="flex flex-col items-center mb-8">
-          <h1 className="text-title text-primary flex items-center justify-center mb-4">
-            <span className="hidden md:inline">Meet</span>
-            <span className="md:hidden">Meet</span>
-            <span className="hidden md:inline mx-4">
-              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={88} height={88} className="inline-block h-22 w-22 object-contain" />
-            </span>
-            <span className="md:hidden">
-              <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={88} height={88} className="inline-block h-18 w-18 object-contain" />
-            </span>
-            <span className="hidden md:inline">WhatsDate</span>
-            <span className="md:hidden">WhatsDate</span>
+          <h1 className="text-title text-primary flex items-center justify-center gap-4 mb-4">
+            Meet
+            <Image src="/whatsdate logo no bkgd.png" alt="WhatsDate Logo" width={80} height={80} className="inline-block h-16 w-16 md:h-20 md:w-20 object-contain" />
+            WhatsDate
           </h1>
           <p className="text-subtitle text-secondary max-w-3xl">
             The smartest AI chatbot designed for modern dating
