@@ -213,7 +213,7 @@ function LayoutContent({ children }: { children: ReactNode }) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
     // Load theme from localStorage on mount

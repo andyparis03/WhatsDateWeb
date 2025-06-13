@@ -201,11 +201,13 @@ export default function Home() {
               className="aspect-square rounded-2xl overflow-hidden"
               style={{
                 transition: isMobile 
-                  ? 'all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                  ? 'all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.4)'
                   : 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.4)',
                 transform: lifestyleAnimationStarted 
                   ? 'scale(1) translateY(0px)' 
-                  : 'scale(0.1) translateY(50px)',
+                  : isMobile 
+                    ? 'scale(0.01) translateY(50px)'
+                    : 'scale(0.1) translateY(50px)',
                 opacity: lifestyleAnimationStarted ? 1 : 0,
               }}
             >
@@ -281,11 +283,13 @@ export default function Home() {
                     className="absolute"
                     style={{
                       transition: isMobile 
-                        ? 'all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important'
+                        ? 'all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.4) !important'
                         : 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.4) !important',
                       transform: animationStarted 
                         ? `translate(${image.x}px, ${image.y}px) scale(1)` 
-                        : 'translate(0px, 0px) scale(0.1)',
+                        : isMobile 
+                          ? 'translate(0px, 0px) scale(0.01)'
+                          : 'translate(0px, 0px) scale(0.1)',
                       opacity: animationStarted ? 1 : 0,
                     }}
                   >
