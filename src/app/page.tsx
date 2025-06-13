@@ -246,7 +246,9 @@ export default function Home() {
                     key={i}
                     className="absolute"
                     style={{
-                      transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.4) !important',
+                      transition: isMobile 
+                        ? 'all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important'
+                        : 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.4) !important',
                       transform: animationStarted 
                         ? `translate(${image.x}px, ${image.y}px) scale(1)` 
                         : 'translate(0px, 0px) scale(0.1)',
