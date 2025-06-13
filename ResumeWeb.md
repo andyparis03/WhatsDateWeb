@@ -68,22 +68,26 @@ This document provides a comprehensive summary of all changes made to the WhatsD
 - Maintained swipe navigation for mobile
 
 ### **Section Flow Optimization**
-**New Page Structure** (optimized for conversion):
+**New Page Structure** (optimized for conversion - REORDERED):
 1. **Hero Section** (`#home`) - Meet WhatsDate intro
-2. **Features Section** (`#features`) - Why WhatsDate Works
+2. **Features Section** (`#features`) - Why WhatsDate Works  
 3. **Lifestyle Section** - Focus on connection messaging
-4. **Testimonials Section** - What They Say About Us
-5. **How It Works** (`#how-it-works`) - Get Started In Minutes
-6. **News Section** - WhatsDate News
-7. **FAQ Section** - Frequently Asked Questions
-8. **Download Section** (`#download`) - Complete download experience
-9. **Newsletter Section** - Get Better At Dating
-10. **Footer** - Comprehensive link structure
+4. **How It Works** (`#how-it-works`) - Get Started In Minutes
+5. **Download Section** (`#download`) - Download WhatsDate Beta
+6. **Installation Steps Section** - Separated detailed installation guide
+7. **System Requirements Section** - Separated technical specifications
+8. **Testimonials Section** - What They Say About Us
+9. **News Section** - WhatsDate News
+10. **FAQ Section** - Frequently Asked Questions
+11. **Newsletter Section** - Get Better At Dating
+12. **Footer** - Comprehensive link structure
 
 ## 📄 Content Updates
 
 ### **Hero Section**
 - **Title**: "Meet [logo] WhatsDate" (exact specification)
+- **Mobile Optimization**: Responsive font sizing (text-4xl on mobile, text-title on desktop) with reduced gap spacing to prevent overflow
+- **Logo Sizing**: Smaller logo on mobile (h-12 w-12) vs desktop (h-20 w-20)
 - **Subtitle**: "The smartest AI chatbot designed for modern dating"
 - **Key Message**: "Because 2025 is about authentic conversations... not awkward small talk."
 - **CTA**: Anchor link to download section
@@ -123,12 +127,21 @@ This document provides a comprehensive summary of all changes made to the WhatsD
 - **Interactive**: HTML details/summary expandable items
 - **Six FAQs**: What is WhatsDate?, Safety, Credits, Auto-reply control, Platforms, AI naturalness
 
-### **Download Section** (Comprehensive)
+### **Download Section** (Streamlined)
 - **Title**: "Download WhatsDate Beta"
 - **Platform Buttons**: Windows (active), macOS/Linux (disabled)
 - **GitHub Link**: Direct to releases
-- **Installation Steps**: 4-step process with email CTA
-- **System Requirements**: Technical specifications
+
+### **Installation Steps Section** (Separated)
+- **Title**: "Installation Steps"
+- **4-Step Process**: Download & Install, Claim Free Credits (with email CTA), Connect WhatsApp, Start Chatting
+- **Layout**: 2-column grid on desktop
+- **Background**: Alternating light gray theme
+
+### **System Requirements Section** (Separated)
+- **Title**: "System Requirements"
+- **Requirements**: Windows 10+, WhatsApp account, Internet, ~200MB space
+- **Layout**: Centered list format
 
 ### **Newsletter Section**
 - **Title**: "Get Better At Dating"
@@ -230,11 +243,17 @@ This document provides a comprehensive summary of all changes made to the WhatsD
 
 ## 🔄 Next Session Continuation Points
 
+### **Recent Updates Completed**
+- ✅ **Section Reordering**: Complete reorganization of page flow per user specifications
+- ✅ **Section Separation**: Installation Steps and System Requirements extracted as standalone sections
+- ✅ **Mobile Title Fix**: Resolved mobile overflow issue with responsive font sizing and spacing
+- ✅ **Content Preservation**: All original content maintained during restructuring
+
 ### **Immediate Tasks**
-1. **Test Image Loading**: Verify all images display correctly
-2. **Mobile Testing**: Test responsive behavior across devices
-3. **Performance Audit**: Check loading speeds and optimization
-4. **Content Review**: Proofread all copy for consistency
+1. **Video Integration**: Replace demo.mp4 with new Sora-generated WhatsDate promotional video
+2. **Image Integration**: Add new 16:9 mosaic hero image featuring automated laptop scenes
+3. **Mobile Testing**: Verify the title fix works across all mobile devices
+4. **Performance Audit**: Check loading speeds and optimization
 
 ### **Potential Enhancements**
 1. **Analytics Integration**: Add tracking for scroll depth and conversions

@@ -151,6 +151,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Carousel Section */}
+      <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-white' : 'bg-gray-900'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative w-full h-80 md:h-96 mx-4">
+              <div className="thursday-carousel w-full h-full relative overflow-hidden rounded-2xl">
+                <div className="carousel-image-container image-1">
+                  <Image 
+                    src="/Mosaic1.png" 
+                    alt="WhatsDate conversation example 1" 
+                    width={400}
+                    height={600}
+                    className="carousel-image object-cover"
+                  />
+                </div>
+                <div className="carousel-image-container image-2">
+                  <Image 
+                    src="/Mosaic2.png" 
+                    alt="WhatsDate conversation example 2" 
+                    width={400}
+                    height={600}
+                    className="carousel-image object-cover"
+                  />
+                </div>
+                <div className="carousel-image-container image-3">
+                  <Image 
+                    src="/Mosaic3.png" 
+                    alt="WhatsDate conversation example 3" 
+                    width={400}
+                    height={600}
+                    className="carousel-image object-cover"
+                  />
+                </div>
+                <div className="carousel-image-container image-4">
+                  <Image 
+                    src="/Mosaic4.png" 
+                    alt="WhatsDate conversation example 4" 
+                    width={400}
+                    height={600}
+                    className="carousel-image object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="px-4">
+              <p className="text-paragraph text-secondary mb-8">
+                See WhatsDate in action. Our AI doesn't just generate responses – it crafts conversations that feel authentic and engaging. Watch how natural interactions unfold when you have the perfect words at the right moment.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Real conversation examples</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-paragraph text-secondary">AI-powered response generation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Seamless WhatsApp integration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How it Works Section */}
       <section id="how-it-works" className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
         <div className="max-w-4xl mx-auto text-center">
