@@ -1,0 +1,16 @@
+  "Create a vibrant horizontal thin banner with a modern gradient background transitioning from WhatsApp
+  green (#25D366) on the left to mid grey on the right, with subtle hints of electric blue and
+   orange. The banner should feature playful, minimalist icons floating across the design: chat bubbles with smartphone notifications, small WhatsApp-style message indicators, AI brain symbols, and connection lines between profile avatars. Include subtle geometric patterns like dots and flowing
+  lines in the background. The icons should be semi-transparent (60% opacity) in white and complementary colors, IMPORTANT : ONLY 2  ICONS > bright fuchsia pink (#FF1493),
+  scattered organically across the banner with some overlapping for depth. Add a very subtle bokeh effect and soft
+  glow to give it a modern, tech-savvy feel. The overall style should be contemporary, fun, and energetic while
+  maintaining professional elegance - perfect for app that integrates with WhatsApp. Ensure the design
+  is clean enough to not distract from text overlay but colorful enough to add visual interest and break the
+  monotony of the dark theme."
+
+  Additional specifications:
+- IMPORTANT!: NUMBER OF TOTAL ICONS = 10 (SCATTERED ALL ALONG THE LINE)
+  - Aspect ratio: 24:1 (ultra-wide)
+  - Style: Modern flat design with subtle depth
+  - Color palette: WhatsApp green, electric blue, mid gray, warm orange
+  - Icons: WhatsApp-inspired, messaging, AI/tech elements

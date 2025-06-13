@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* Hero Section */}
-      <section id="home" className={`w-full flex flex-col items-center justify-center min-h-[90vh] py-20 px-6 text-center relative ${
+      <section id="home" className={`w-full flex flex-col items-center justify-start min-h-[90vh] pt-8 pb-20 px-6 text-center relative ${
         theme === 'light' ? 'bg-white' : 'bg-gray-900'
       }`}>
         {/* Main Title */}
@@ -184,15 +184,15 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <Image src="/natural conversation flow.png" alt="Natural conversation flow icon" width={40} height={40} className="object-contain" />
                   <span className="text-paragraph text-secondary">Natural conversation flow</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <Image src="/personalised responses.png" alt="Personalized responses icon" width={40} height={40} className="object-contain" />
                   <span className="text-paragraph text-secondary">Personalized responses</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <Image src="/human like timing.png" alt="Human-like timing icon" width={40} height={40} className="object-contain" />
                   <span className="text-paragraph text-secondary">Human-like timing</span>
                 </div>
               </div>
@@ -235,15 +235,15 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <Image src="/real conversation.png" alt="Real conversation examples icon" width={40} height={40} className="object-contain" />
                   <span className="text-paragraph text-secondary">Real conversation examples</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <Image src="/AI-powered response.png" alt="AI-powered response generation icon" width={40} height={40} className="object-contain" />
                   <span className="text-paragraph text-secondary">AI-powered response generation</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <Image src="/Seamless Whatsapp.png" alt="Seamless WhatsApp integration icon" width={40} height={40} className="object-contain" />
                   <span className="text-paragraph text-secondary">Seamless WhatsApp integration</span>
                 </div>
               </div>
