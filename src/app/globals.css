@@ -221,6 +221,34 @@ body, .transition-all, .transition-colors {
   z-index: 1;
 }
 
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-image {
+    max-width: 120px;
+    max-height: 180px;
+  }
+  
+  .image-1 {
+    top: 30%;
+    left: 30%;
+  }
+
+  .image-2 {
+    top: 20%;
+    left: 60%;
+  }
+
+  .image-3 {
+    top: 60%;
+    left: 40%;
+  }
+
+  .image-4 {
+    top: 70%;
+    left: 70%;
+  }
+}
+
 /* Hover effects */
 .carousel-image-container:hover {
   z-index: 10 !important;

@@ -154,9 +154,31 @@ export default function Home() {
       {/* Carousel Section */}
       <section className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-white' : 'bg-gray-900'}`}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative w-full h-80 md:h-96 mx-4">
-              <div className="thursday-carousel w-full h-full relative overflow-hidden rounded-2xl">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
+            {/* Text first on mobile, second on desktop */}
+            <div className="px-4 order-2 md:order-2">
+              <p className="text-paragraph text-secondary mb-8">
+                See WhatsDate in action. Our AI doesn't just generate responses – it crafts conversations that feel authentic and engaging. Watch how natural interactions unfold when you have the perfect words at the right moment.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Real conversation examples</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-paragraph text-secondary">AI-powered response generation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Seamless WhatsApp integration</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Images second on mobile, first on desktop */}
+            <div className="relative w-full order-1 md:order-1">
+              <div className="thursday-carousel relative mx-auto" style={{width: 'fit-content', height: 'fit-content'}}>
                 <div className="carousel-image-container image-1">
                   <Image 
                     src="/Mosaic1.png" 
@@ -192,25 +214,6 @@ export default function Home() {
                     height={600}
                     className="carousel-image object-cover"
                   />
-                </div>
-              </div>
-            </div>
-            <div className="px-4">
-              <p className="text-paragraph text-secondary mb-8">
-                See WhatsDate in action. Our AI doesn't just generate responses – it crafts conversations that feel authentic and engaging. Watch how natural interactions unfold when you have the perfect words at the right moment.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="text-paragraph text-secondary">Real conversation examples</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="text-paragraph text-secondary">AI-powered response generation</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="text-paragraph text-secondary">Seamless WhatsApp integration</span>
                 </div>
               </div>
             </div>
