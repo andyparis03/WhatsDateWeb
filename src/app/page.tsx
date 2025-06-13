@@ -8,8 +8,10 @@ import { useEffect, useRef, useState } from 'react';
 export default function Home() {
   const { theme } = useTheme();
   const [animationStarted, setAnimationStarted] = useState(false);
+  const [lifestyleAnimationStarted, setLifestyleAnimationStarted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const lifestyleSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -42,6 +44,27 @@ export default function Home() {
       }
     };
   }, [animationStarted]);
+
+  useEffect(() => {
+    const lifestyleObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !lifestyleAnimationStarted) {
+          setLifestyleAnimationStarted(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (lifestyleSectionRef.current) {
+      lifestyleObserver.observe(lifestyleSectionRef.current);
+    }
+
+    return () => {
+      if (lifestyleSectionRef.current) {
+        lifestyleObserver.unobserve(lifestyleSectionRef.current);
+      }
+    };
+  }, [lifestyleAnimationStarted]);
   
   return (
     <div className="w-full flex flex-col items-center">
@@ -148,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* Lifestyle Section */}
-      <section className="w-full py-20 px-6">
+      <section ref={lifestyleSectionRef} className="w-full py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -174,7 +197,18 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="aspect-square rounded-2xl overflow-hidden">
+            <div 
+              className="aspect-square rounded-2xl overflow-hidden"
+              style={{
+                transition: isMobile 
+                  ? 'all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                  : 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.4)',
+                transform: lifestyleAnimationStarted 
+                  ? 'scale(1) translateY(0px)' 
+                  : 'scale(0.1) translateY(50px)',
+                opacity: lifestyleAnimationStarted ? 1 : 0,
+              }}
+            >
               <Image 
                 src="/lifestyle-couple.png" 
                 alt="Couple connecting and using WhatsDate" 
