@@ -112,6 +112,7 @@ body {
   animation: spin-slow 3s linear infinite;
 }
 
+
 /* Large tap targets for mobile */
 button, a, .rounded-full {
   min-height: 48px;

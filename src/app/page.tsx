@@ -3,9 +3,33 @@ import { FaWindows, FaApple, FaLinux, FaGithub } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import Image from 'next/image';
 import { useTheme } from './theme-provider';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
   const { theme } = useTheme();
+  const [animationStarted, setAnimationStarted] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animationStarted) {
+          setAnimationStarted(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [animationStarted]);
   
   return (
     <div className="w-full flex flex-col items-center">
@@ -151,6 +175,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WhatsDate in Action Section */}
+      <section ref={sectionRef} className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Exploding Images Carousel */}
+            <div className="relative w-full h-96">
+              <div className="absolute inset-0 flex items-center justify-center">
+                {[
+                  { src: '/Mosaic1.png', direction: 'top-left', x: -120, y: -110 },
+                  { src: '/Mosaic2.png', direction: 'top-right', x: 120, y: -110 },
+                  { src: '/Mosaic3.png', direction: 'bottom-left', x: -120, y: 110 },
+                  { src: '/Mosaic4.png', direction: 'bottom-right', x: 120, y: 110 }
+                ].map((image, i) => (
+                  <div
+                    key={i}
+                    className="absolute transform transition-all duration-3000 ease-out"
+                    style={{
+                      transform: animationStarted 
+                        ? `translate(${image.x}px, ${image.y}px) scale(1)` 
+                        : 'translate(0px, 0px) scale(0.1)',
+                      opacity: animationStarted ? 1 : 0,
+                    }}
+                  >
+                    <div className="relative">
+                      <Image
+                        src={image.src}
+                        alt={`WhatsDate conversation example ${i + 1}`}
+                        width={240}
+                        height={160}
+                        className="rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-300 max-w-[210px] h-auto object-contain"
+                        style={{
+                          filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))',
+                        }}
+                      />
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div>
+              <p className="text-paragraph text-primary mb-8">
+                See WhatsDate in action. Our AI doesn't just generate responses – it crafts conversations that feel authentic and
+                engaging. Natural interactions unfold when you have the perfect words at the right moment.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Real conversation examples</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">AI-powered response generation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Seamless WhatsApp integration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* How it Works Section */}
       <section id="how-it-works" className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
