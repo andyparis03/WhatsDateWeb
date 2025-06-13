@@ -121,7 +121,7 @@ button, a, .rounded-full {
 }
 
 /* Smooth transitions for theme and hover */
-body, .transition-all, .transition-colors {
+body, .transition-colors {
   transition: all 0.3s cubic-bezier(.4,0,.2,1);
 }
 

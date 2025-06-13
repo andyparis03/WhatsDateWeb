@@ -8,7 +8,19 @@ import { useEffect, useRef, useState } from 'react';
 export default function Home() {
   const { theme } = useTheme();
   const [animationStarted, setAnimationStarted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -179,19 +191,62 @@ export default function Home() {
       <section ref={sectionRef} className={`w-full py-20 px-6 ${theme === 'light' ? 'bg-light-gray' : 'bg-gray-800'}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Exploding Images Carousel */}
-            <div className="relative w-full h-96">
+            {/* Text Content - Mobile First */}
+            <div className="md:order-2">
+              <p className="text-paragraph text-primary mb-8">
+                See WhatsDate in action. Our AI doesn't just generate responses – it crafts conversations that feel authentic and
+                engaging. Natural interactions unfold when you have the perfect words at the right moment.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Real conversation examples</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">AI-powered response generation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span className="text-paragraph text-secondary">Seamless WhatsApp integration</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Exploding Images Carousel - Mobile Second */}
+            <div className="relative w-full h-96 md:order-1">
               <div className="absolute inset-0 flex items-center justify-center">
                 {[
-                  { src: '/Mosaic1.png', direction: 'top-left', x: -120, y: -110 },
-                  { src: '/Mosaic2.png', direction: 'top-right', x: 120, y: -110 },
-                  { src: '/Mosaic3.png', direction: 'bottom-left', x: -120, y: 110 },
-                  { src: '/Mosaic4.png', direction: 'bottom-right', x: 120, y: 110 }
+                  { 
+                    src: '/Mosaic1.png', 
+                    direction: 'top-left', 
+                    x: isMobile ? -80 : -120, 
+                    y: isMobile ? -70 : -110 
+                  },
+                  { 
+                    src: '/Mosaic2.png', 
+                    direction: 'top-right', 
+                    x: isMobile ? 80 : 120, 
+                    y: isMobile ? -70 : -110 
+                  },
+                  { 
+                    src: '/Mosaic3.png', 
+                    direction: 'bottom-left', 
+                    x: isMobile ? -80 : -120, 
+                    y: isMobile ? 70 : 110 
+                  },
+                  { 
+                    src: '/Mosaic4.png', 
+                    direction: 'bottom-right', 
+                    x: isMobile ? 80 : 120, 
+                    y: isMobile ? 70 : 110 
+                  }
                 ].map((image, i) => (
                   <div
                     key={i}
-                    className="absolute transform transition-all duration-3000 ease-out"
+                    className="absolute"
                     style={{
+                      transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.4) !important',
                       transform: animationStarted 
                         ? `translate(${image.x}px, ${image.y}px) scale(1)` 
                         : 'translate(0px, 0px) scale(0.1)',
@@ -213,28 +268,6 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Text Content */}
-            <div>
-              <p className="text-paragraph text-primary mb-8">
-                See WhatsDate in action. Our AI doesn't just generate responses – it crafts conversations that feel authentic and
-                engaging. Natural interactions unfold when you have the perfect words at the right moment.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
-                  <span className="text-paragraph text-secondary">Real conversation examples</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
-                  <span className="text-paragraph text-secondary">AI-powered response generation</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
-                  <span className="text-paragraph text-secondary">Seamless WhatsApp integration</span>
-                </div>
               </div>
             </div>
           </div>
