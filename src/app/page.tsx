@@ -1,5 +1,5 @@
 'use client';
-import { FaWindows, FaApple, FaLinux, FaGithub } from 'react-icons/fa';
+import { FaWindows, FaApple, FaLinux, FaGithub, FaDownload, FaQrcode, FaPalette, FaComments } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import Image from 'next/image';
 import { useTheme } from './theme-provider';
@@ -327,29 +327,33 @@ export default function Home() {
               {
                 step: '01',
                 title: 'Download',
-                desc: 'Get WhatsDate for your device'
+                desc: 'Get WhatsDate for your device',
+                icon: <FaDownload size={32} />
               },
               {
                 step: '02', 
                 title: 'Connect',
-                desc: 'Scan QR code with WhatsApp'
+                desc: 'Scan QR code with WhatsApp',
+                icon: <FaQrcode size={32} />
               },
               {
                 step: '03',
                 title: 'Customize',
-                desc: 'Set your conversation style'
+                desc: 'Set your conversation style',
+                icon: <FaPalette size={32} />
               },
               {
                 step: '04',
                 title: 'Chat',
-                desc: 'Let AI handle the responses'
+                desc: 'Let AI handle the responses',
+                icon: <FaComments size={32} />
               }
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ${
-                  theme === 'light' ? 'bg-black' : 'bg-white text-black'
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${
+                  theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
                 }`}>
-                  {item.step}
+                  {item.icon}
                 </div>
                 <h3 className="text-subtitle text-primary mb-2">{item.title}</h3>
                 <p className="text-paragraph text-secondary">{item.desc}</p>
@@ -418,31 +422,35 @@ export default function Home() {
               {
                 step: '01',
                 title: 'Download & Install',
-                desc: 'Download WhatsDate for your platform and install it in seconds. No complex setup required.'
+                desc: 'Download WhatsDate for your platform and install it in seconds. No complex setup required.',
+                icon: <FaDownload size={24} />
               },
               {
                 step: '02',
                 title: 'Claim Free Credits',
                 desc: 'Email us to claim your 1000 FREE credits for WhatsDate activation.',
-                hasEmail: true
+                hasEmail: true,
+                icon: <MdEmail size={24} />
               },
               {
                 step: '03',
                 title: 'Connect WhatsApp',
-                desc: 'Scan the QR code to connect your WhatsApp account. Your data stays private and secure.'
+                desc: 'Scan the QR code to connect your WhatsApp account. Your data stays private and secure.',
+                icon: <FaQrcode size={24} />
               },
               {
                 step: '04',
                 title: 'Start Chatting',
-                desc: 'Enable AI assistance and watch as perfect responses are generated automatically.'
+                desc: 'Enable AI assistance and watch as perfect responses are generated automatically.',
+                icon: <FaComments size={24} />
               }
             ].map((item, i) => (
               <div key={i} className="text-left">
                 <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                     theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
                   }`}>
-                    {item.step}
+                    {item.icon}
                   </div>
                   <div>
                     <h4 className="text-subtitle text-primary mb-2">{item.title}</h4>
